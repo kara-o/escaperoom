@@ -17,3 +17,5 @@ game1 = Game.create(user_id: brian.id, total_time: 90)
 
 room1 = Room.create(game_id: game1.id, start_time: 0, end_time: 60)
 room2 = Room.create(game_id: game1.id, start_time: 0, end_time: 30)
+
+#THIS IS MASTER
