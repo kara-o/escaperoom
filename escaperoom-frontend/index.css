@@ -1,0 +1,17 @@
+body {
+  background-image: url('./images/entrance_flatiron.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 500px 500px;
+  position: relative;
+}
+
+#button {
+  padding: 25px 25px;
+  color: transparent;
+  background-color:transparent;
+  border-color: transparent;
+  position:absolute;
+}
