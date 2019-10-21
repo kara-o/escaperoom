@@ -1,5 +1,5 @@
 const taxi = document.getElementById("taxi")
-const imageContainer = document.getElementById("image-container")
+const mapContainer = document.getElementById("map-container")
 let dropTarget = document.getElementById("drop-target")
 const seattleMap = document.getElementById("seattle-map-image")
 let diffX = 0
@@ -11,9 +11,9 @@ let dropSuccessResponse = document.getElementById("drop-success-response")
 
 taxi.addEventListener("dragstart", dragstart)
 
-imageContainer.addEventListener("dragover", dragover)
-imageContainer.addEventListener("dragenter", dragenter)
-imageContainer.addEventListener("drop", drop)
+mapContainer.addEventListener("dragover", dragover)
+mapContainer.addEventListener("dragenter", dragenter)
+mapContainer.addEventListener("drop", drop)
 
 dropTarget.addEventListener("drop", dropOnTarget)
 
@@ -61,7 +61,7 @@ function clearTransitionMapPage() {
   seattleMap.style.display = "none";
   taxi.style.display = "none";
   dropTarget.style.display = "none";
-  imageContainer.style.display = "none";
+  mapContainer.style.display = "none";
 }
 
 function nextPuzzle(puzzleFunction) {

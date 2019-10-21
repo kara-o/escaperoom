@@ -1,8 +1,8 @@
 body {
-  overflow: hidden
+  overflow: hidden;
 }
 
-#image-container {
+#map-container {
   position: relative;
   display: block;
   height: 876px;
@@ -24,15 +24,17 @@ body {
 
 #taxi {
   position: absolute;
-}
-  /* animation-name: spin;
+  left: 10px;
+  top: 10px;
+  animation-name: spin;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
-} */
+}
 
 #drop-target {
   position: absolute;
@@ -75,10 +77,17 @@ body {
 
 #kara-puzzle {
   display: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 #troll-words {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  color: white;
   position: absolute;
-  left: 1200px;
+  left: 1000px;
   top: 50px;
 }
