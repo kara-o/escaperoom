@@ -1,0 +1,30 @@
+#image-container {
+  position: relative;
+  display: block;
+  height: 876px;
+  width: 1133px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#seattle-map-image {
+  position: absolute;
+  display: block;
+  height: 876px;
+  width: 1133px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#taxi {
+  position: absolute;
+}
+
+#drop-target {
+  position: absolute;
+  width: 60px;
+  height: 10px;
+  top: 320px;
+  left: 478px;
+  background-color: transparent;
+}
