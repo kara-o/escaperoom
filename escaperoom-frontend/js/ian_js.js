@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', (event)=>{
   main();
 })
 
-
 function main(){
   addButton();
   addImage();
@@ -11,8 +10,8 @@ function main(){
 
 function addButton(){
   let button = document.createElement("button");
-  button.setAttribute('id','button');
-  button.innerText = "     ";
+  button.setAttribute('id','page-one-specific-button');
+  button.innerText = "  ";
   let lowerDiv = document.getElementById('lower-div');
   lowerDiv.append(button);
 }
@@ -34,7 +33,7 @@ function firstbuttonAction(){
   }
   window.setTimeout(firstDelayedClue,2000);
 
-  let button = document.getElementById("button");
+  let button = document.getElementById("page-one-specific-button");
   button.addEventListener('mouseenter', (event) =>{
     let firstScreen = window.prompt("First Challenge! Which is best for creating constant variables? Var, let or const?","tick tock, tick tock.");
   
