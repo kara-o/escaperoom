@@ -76,3 +76,9 @@ body {
 #kara-puzzle {
   display: none;
 }
+
+#troll-words {
+  position: absolute;
+  left: 1200px;
+  top: 50px;
+}

@@ -4,6 +4,7 @@ let dropTarget = document.getElementById("drop-target")
 const seattleMap = document.getElementById("seattle-map-image")
 let diffX = 0
 let diffY = 0
+const karaPuzzleDiv = document.getElementById("kara-puzzle")
 
 let dropFailResponse = document.getElementById("drop-fail-response")
 let dropSuccessResponse = document.getElementById("drop-success-response")
@@ -51,7 +52,7 @@ function dropOnTarget(e) {
   setTimeout(function() {
     dropSuccessResponse.style.display = "none";
     clearTransitionMapPage();
-    nextPuzzle(document.getElementById("kara-puzzle"));
+    nextPuzzle(karaPuzzle);
   }, 3900);
   e.stopPropagation();
 }
@@ -63,6 +64,15 @@ function clearTransitionMapPage() {
   imageContainer.style.display = "none";
 }
 
-function nextPuzzle(puzzle) {
-  puzzle.style.display = "block";
+function nextPuzzle(puzzleFunction) {
+  puzzleFunction()
+}
+
+function karaPuzzle() {
+  document.body.style.backgroundImage = "url('images/fremontTroll.jpg')";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "cover";
+  karaPuzzleDiv.style.display = "block";
+
+
 }
