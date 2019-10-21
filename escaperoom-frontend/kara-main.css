@@ -9,8 +9,8 @@ body {
   width: 1133px;
   margin-left: auto;
   margin-right: auto;
-  border-style: dotted;
-  border-color: purple;
+  border: 10px solid rgba(155,118,92,0.32);
+  border-radius: 0px;
 }
 
 #seattle-map-image {
