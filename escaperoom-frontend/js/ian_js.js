@@ -2,13 +2,11 @@ document.addEventListener('DOMContentLoaded', (event)=>{
   main();
 })
 
-const mathURL = 'http://numbersapi.com/random/math'
 
 function main(){
   addButton();
   addImage();
   firstbuttonAction();
-  goGetMathQuestion();
 }
 
 function addButton(){
@@ -25,7 +23,7 @@ function addImage(){
   imageAdded.setAttribute('id','image-specific-id');
   imageAdded.setAttribute('alt','flatiron seattle school entrance');
   let imageLocation = document.getElementById('top-div');
-  imageLocation.append(imageAdded)
+  imageLocation.append(imageAdded);
 }
 
 function firstbuttonAction(){
@@ -34,7 +32,7 @@ function firstbuttonAction(){
     let firstClue = window.alert("Clue 1 - I have bark, but I am not a dog");
     firstClue;
   }
-  window.setTimeout(firstDelayedClue,4000);
+  window.setTimeout(firstDelayedClue,2000);
 
   let button = document.getElementById("button");
   button.addEventListener('mouseenter', (event) =>{
@@ -45,8 +43,7 @@ function firstbuttonAction(){
       window.alert("good job!")
       let secondScreen = window.prompt("A list is the same as a queue","true or false?");
       if (secondScreen === "false"){
-        window.alert("Nice work!\n Clue 2\n - Azure is my friend\n Netflix and chill all day\n Living-room needs me ")
-        secondButtonCreated();
+        window.alert("Nice work!")
       } else {
         window.alert("almost")
       }
@@ -55,39 +52,3 @@ function firstbuttonAction(){
     }
   })
 }
-
-function secondButtonCreated(){
-  //created once you passed the two challenges 
-  let secondButton = document.createElement('button');
-  secondButton.setAttribute('id','second-button-id');
-  let lowerDiv = document.getElementById('lower-div');
-  lowerDiv.append(secondButton);
-  secondButtonAction();
-}
-
-function goGetMathQuestion(){
-  fetch(mathURL, {
-    headers: {
-      "Accept" : 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(mathFact => {
-    console.log(mathFact);
-    // displayMathQuestion(mathFact)
-  
-});
-}
-
-function secondButtonAction(){
-  let secondButtonId = document.getElementById('second-button-id');
-  secondButtonId.addEventListener('mouseenter', (event)=> {
-    
-
-  });
-}
-
-// function displayMathQuestion(mathFact){
-//   console.log("are we even here yet?", mathFact);
-
-// }
