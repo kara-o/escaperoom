@@ -1,17 +1,41 @@
 body {
-  background-image: url('./images/entrance_flatiron.jpg');
-  background-repeat: no-repeat;
+  /* background-image: url('./images/entrance_flatiron.jpg'); */
+  /* background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
   padding: 500px 500px;
-  position: relative;
+  position: relative; */
 }
 
+#image-specific-id {
+  height: 90%;
+  width: 90%;
+  position: center;
+  position: relative;
+
+}
+
+
 #button {
+  top: 500px;
+  right:1000px;
   padding: 25px 25px;
   color: transparent;
   background-color:transparent;
   border-color: transparent;
   position:absolute;
+  border-color: teal;
+
+  /* trying to fix button to exact location */
+}
+
+#second-button-id {
+  color: transparent;
+  background-color: transparent;
+  position:absolute;
+  border-color:black;
+  padding: 25px 25px;
+  top: 500px;
+  left: 0;
 }
