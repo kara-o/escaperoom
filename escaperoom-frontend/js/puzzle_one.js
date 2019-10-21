@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', (event)=>{
-  main();
-})
+// document.addEventListener('DOMContentLoaded', (event)=>{
+//   main();
+// }) puzzle one is not turned on for the time being.
 
 function main(){
   addButton();
@@ -21,8 +21,8 @@ function addImage(){
   imageAdded.setAttribute('src','./images/entrance_flatiron.jpg');
   imageAdded.setAttribute('id','image-specific-id');
   imageAdded.setAttribute('alt','flatiron seattle school entrance');
-  let imageLocation = document.getElementById('top-div');
-  imageLocation.append(imageAdded);
+  let imageLocation = document.getElementsByTagName('main');
+  imageLocation[0].append(imageAdded);
 }
 
 function firstbuttonAction(){
