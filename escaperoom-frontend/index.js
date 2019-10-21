@@ -1,8 +1,12 @@
 const taxi = document.getElementById("taxi")
 const imageContainer = document.getElementById("image-container")
-const dropTarget = document.getElementById("drop-target")
+let dropTarget = document.getElementById("drop-target")
+const seattleMap = document.getElementById("seattle-map-image")
 let diffX = 0
 let diffY = 0
+
+let dropFailResponse = document.getElementById("drop-fail-response")
+let dropSuccessResponse = document.getElementById("drop-success-response")
 
 taxi.addEventListener("dragstart", dragstart)
 
@@ -16,6 +20,7 @@ function dragstart(e) {
   const rect = taxi.getBoundingClientRect();
   diffX = e.clientX - rect.left
   diffY = e.clientY - rect.top
+  dropFailResponse.style.display = "none"
 }
 
 function dragover(e) {
@@ -33,6 +38,7 @@ function drop(e) {
   taxi.style.position = "fixed"
 
   console.log("NOT TARGET")
+  dropFailResponse.style.display = "block"
 }
 
 function dropOnTarget(e) {
@@ -40,12 +46,23 @@ function dropOnTarget(e) {
   taxi.style.top = e.clientY - diffY + "px"
   taxi.style.position = "fixed"
 
-  console.log("TARGET!!!")
-  e.stopPropagation()
+  console.log("TARGET!!!");
+  dropSuccessResponse.style.display = "block";
+  setTimeout(function() {
+    dropSuccessResponse.style.display = "none";
+    clearTransitionMapPage();
+    nextPuzzle(document.getElementById("kara-puzzle"));
+  }, 3900);
+  e.stopPropagation();
 }
 
+function clearTransitionMapPage() {
+  seattleMap.style.display = "none";
+  taxi.style.display = "none";
+  dropTarget.style.display = "none";
+  imageContainer.style.display = "none";
+}
 
-
-    // var data = dropevent.dataTransfer.getData("text");
-    // dropevent.target.appendChild(document.getElementById(data));
-    // document.getElementById("drag").style.color = 'black';
+function nextPuzzle(puzzle) {
+  puzzle.style.display = "block";
+}

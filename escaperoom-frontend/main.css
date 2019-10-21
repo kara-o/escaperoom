@@ -1,3 +1,7 @@
+body {
+  overflow: hidden
+}
+
 #image-container {
   position: relative;
   display: block;
@@ -5,6 +9,8 @@
   width: 1133px;
   margin-left: auto;
   margin-right: auto;
+  border-style: dotted;
+  border-color: purple;
 }
 
 #seattle-map-image {
@@ -19,12 +25,54 @@
 #taxi {
   position: absolute;
 }
+  /* animation-name: spin;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+} */
 
 #drop-target {
   position: absolute;
-  width: 60px;
-  height: 10px;
-  top: 320px;
-  left: 478px;
+  width: 80px;
+  height: 50px;
+  top: 300px;
+  left: 468px;
   background-color: transparent;
+}
+
+#drop-fail-response {
+  display: none;
+  text-align: center;
+  font-size: 200%;
+}
+
+#drop-success-response {
+  display: none;
+  position: absolute;
+  left: 400px;
+  top: 400px;
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+@keyframes slidein {
+ from {
+   margin-left: 100%;
+   width: 300%;
+ }
+
+ to {
+   margin-left: 15%;
+   width: 100%;
+   font-size: 500%;
+ }
+}
+
+#kara-puzzle {
+  display: none;
 }
