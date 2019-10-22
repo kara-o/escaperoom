@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  loadTreasurePuzzle();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   loadTreasurePuzzle();
+// });
 
-function TreasurePuzzleOff() {
+function treasurePuzzleOff() {
   const mapGrid = document.getElementById("treasure-map-whole");
   const piecesDiv = document.getElementById("treasure-pieces-div");
 
