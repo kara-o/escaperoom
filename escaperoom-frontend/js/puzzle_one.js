@@ -1,8 +1,5 @@
-document.addEventListener('DOMContentLoaded', (event)=>{
-  main();
-})
-
-function main(){
+function puzzleOneMain(){
+  startTimer();
   addButton();
   addImage();
   firstbuttonAction();
@@ -52,8 +49,8 @@ function firstbuttonAction(){
     let locationOfFirstChallenge = document.getElementById('header-id');
 
     locationOfFirstChallenge.innerText = `First Challenge. Which is best for creating constant variables? Var, let or const?`;
-    
-    
+
+
     let createForm = document.createElement("FORM");
     createForm.setAttribute('id','form-specific-id');
 
@@ -63,7 +60,7 @@ function firstbuttonAction(){
 
     createForm.append(createInput);
     locationOfFirstChallenge.append(createForm);
-    
+
     let formSpecificId = document.getElementById('form-specific-id');
     formSpecificId.addEventListener('submit', (event)=>{
       event.preventDefault();
@@ -71,13 +68,13 @@ function firstbuttonAction(){
       let formInputAnswer = event.target.elements[0].value;
       if (formInputAnswer === "const"){
         let questionSpace = document.getElementById('header-id');
-        questionSpace.innerText = "Success!"; 
-        
+        questionSpace.innerText = "Success!";
+
         window.setTimeout(hideAllOnPage,3000);
-        } 
-    })  
-  }) 
-} 
+        }
+    })
+  })
+}
 
 function hideAllOnPage(){
   let addingClassToHeader = document.getElementById('header-id');
