@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="kara-main.css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/treasure-map.css">
+    
     <title>Flatiron Seattle Escape Room</title>
   </head>
   <body>
@@ -54,11 +56,56 @@
      <img src="images/fremontTroll.jpg" alt="image of Fremont troll" id="fremont-troll-image">
      <p id="troll-words">You found me!</p>
    </div>
+    
+<!--     treasure map puzzle -->
+    <div id="treasure-map-whole">
+      <div id="map-container-1" class="map-container map-grid-container"></div>
+      <div id="map-container-2" class="map-container map-grid-container"></div>
+      <div id="map-container-3" class="map-container map-grid-container"></div>
+      <div id="map-container-4" class="map-container map-grid-container"></div>
+      <div id="map-container-5" class="map-container map-grid-container"></div>
+      <div id="map-container-6" class="map-container map-grid-container"></div>
+      <div id="map-container-7" class="map-container map-grid-container"></div>
+      <div id="map-container-8" class="map-container map-grid-container"></div>
+      <div id="map-container-9" class="map-container map-grid-container"></div>
+    </div>
+    <div id="treasure-pieces-div">
+      <div class="map-container map-inline-container">
+        <div id="map-piece-1" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-2" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-3" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-4" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-5" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-6" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-7" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-8" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-9" class="map-piece" draggable="true"></div>
+      </div>   
+    </div>
+<!--     end treasure map puzzle -->
 
-   <script src="js/map.js"></script>
-   <script src="js/main.js"></script>
-   <script src="js/main_page.js"></script>
-   <script src="js/puzzle_one.js"></script>
-   <script src="js/troll.js"></script>
+   <script src="./js/treasure_puzzle.js"></script>
+   <script src="map.js"></script>
+   <script src="main.js"></script>
+   <script src="./js/main_page.js"></script>
+   <script src="./js/puzzle_one.js"></script>
+   <script src="troll.js"></script>
+  
   </body>
 </html>
