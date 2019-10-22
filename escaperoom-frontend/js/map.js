@@ -1,5 +1,5 @@
 const taxi = document.getElementById("taxi")
-const mapContainer = document.getElementById("map-container")
+const mapContainer = document.getElementById("transition-map-container")
 
 let diffX = 0
 let diffY = 0
@@ -9,7 +9,7 @@ let intervalId = 0
 let dropFailResponse = document.getElementById("drop-fail-response")
 let dropSuccessResponse = document.getElementById("drop-success-response")
 
-function displayTransitionMap(targetIdTag, clues) {
+function displayTransitionMap(targetIdTag, clues, instructions) {
   let dropTarget = document.getElementById(targetIdTag)
 
   mapContainer.style.display = "block";
@@ -22,17 +22,40 @@ function displayTransitionMap(targetIdTag, clues) {
   dropTarget.addEventListener("drop", dropOnTarget);
 
   displayClues(clues);
+  displayInstructions(instructions);
 }
 
 function displayClues(clues) {
-  const cluesText = document.getElementById("map-clues")
-  cluesText.textContent = clues[0];
+  const cluesBox = document.getElementById("left-dialog-box")
+  const clueWords = document.createElement("p")
+  cluesBox.appendChild(clueWords)
+  clueWords.style.padding = "10px"
+  clueWords.textContent = clues[0];
   let i=1;
   intervalId = setInterval(function() {
     console.log('hello')
-    cluesText.textContent = clues[i % clues.length];
+    clueWords.textContent = clues[i % clues.length];
     i++;
-  }, 2000)
+  }, 2000);
+  const moreCluesBtn = document.createElement('button');
+  cluesBox.appendChild(moreCluesBtn)
+  moreCluesBtn.textContent = "More Clues";
+  moreCluesBtn.style.position = "absolute";
+  moreCluesBtn.style.width = "40%"
+  moreCluesBtn.style.height = "40px";
+}
+
+function displayInstructions(instructions) {
+  const instructionsBox = document.getElementById("right-dialog-box")
+  const instructionsList = document.createElement('ul')
+  instructionsBox.appendChild(instructionsList)
+
+  for (const instruction of instructions) {
+    const instructionLi = document.createElement("li")
+    instructionLi.style.padding = "10px"
+    instructionLi.textContent = instruction
+    instructionsList.appendChild(instructionLi)
+  }
 
 }
 
