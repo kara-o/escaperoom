@@ -7,15 +7,47 @@ body {
   background-image: url('images/forest.jpg');
 }
 
+#page-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100
+  /* justify-content: space-around; */
+}
+
+.dialog-box {
+  display: block;
+  position: absolute;
+}
+
+#left-dialog-box {
+  left: 0;
+  width: 20%;
+  height: 400px;
+  border: 10px solid rgba(155,118,92,0.32);
+  border-radius: 0px;
+  /* flex: 1; */
+}
+
+#right-dialog-box {
+  right: 0;
+  width: 20%;
+  height: 400px;
+  border: 10px solid rgba(155,118,92,0.32);
+  border-radius: 0px;
+  /* flex: 1; */
+}
+
 #map-container {
   position: relative;
-  display: inline-block;
+  display: none;
   height: 876px;
-  width: 1133px;
+  width: 55%;
   margin-left: auto;
   margin-right: auto;
   border: 10px solid rgba(155,118,92,0.32);
   border-radius: 0px;
+  /* flex: 1; */
 }
 
 #map-clues {
@@ -29,7 +61,7 @@ body {
   position: absolute;
   display: block;
   height: 876px;
-  width: 1133px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -122,21 +154,4 @@ body {
   position: absolute;
   left: 1000px;
   top: 100px;
-}
-
-.dialog-box {
-  display: inline-block;
-  position: absolute;
-}
-
-#left-dialog-box {
-  left: 5px;
-  width: 80px;
-  height: 400px;
-}
-
-#right-dialog-box {
-  right: 5px;
-  width: 80px;
-  height: 400px;
 }
