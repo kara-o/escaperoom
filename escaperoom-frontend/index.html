@@ -1,29 +1,52 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'/>
 
-<html>
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/clock.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="kara-main.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="./css/treasure-map.css">
+    
+    <title>Flatiron Seattle Escape Room</title>
+  </head>
+  <body>
+    <main>
+        <div id=clock-div>
+            <span id="timer">600</span>
+        </div>
+        <h2></h2>
+        <div id="top-div"></div>
+        <div id="mid-div"></div>
+        <div id="lower-div"></div>
+    </main>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
-
-  <script src="./js/main_page.js"></script>
-  <script src="./js/clock.js"></script>
-  <script src="./js/puzzle_one.js"></script>
-  <script src="./js/treasure_puzzle.js"></script>
-
-
-  <link rel="stylesheet" href="./css/clock.css">
-  <link rel="stylesheet" type="text/css" href="index.css">
-  <link rel="stylesheet" href="./css/treasure-map.css">
-  <title>Flatiron Escape Room</title>
-</head>
-
-<body>
-  <main>
-    <div id="clock-div">
-      <span id="timer">600</span>
+    <div id="start-page">
+      Welcome! This is a test login page.
+      <button type="button" id="test-login-btn">Login</button>
     </div>
+
+    <div id="map-container">
+      <img src="images/seattleMap.png" alt="image of Google map of Seattle" id="seattle-map-image">
+      <img src="images/taxi48.png" alt="image of yellow cab" id="taxi" draggable="true">
+      <div id="drop-target"></div>
+      <p id="map-clues"></p>
+    </div>
+
+   <p id="drop-fail-response">TRY AGAIN!</p>
+   <p id="drop-success-response">SUCCESS!!!!!</p>
+
+   <div id="troll-puzzle-container">
+     <img src="images/fremontTroll.jpg" alt="image of Fremont troll" id="fremont-troll-image">
+     <p id="troll-words">You found me!</p>
+   </div>
+    
+<!--     treasure map puzzle -->
     <div id="treasure-map-whole">
       <div id="map-container-1" class="map-container map-grid-container"></div>
       <div id="map-container-2" class="map-container map-grid-container"></div>
@@ -62,13 +85,16 @@
       </div>
       <div class="map-container map-inline-container">
         <div id="map-piece-9" class="map-piece" draggable="true"></div>
-      </div>
+      </div>   
     </div>
-    <h2></h2>
-    <div id="top-div"></div>
-    <div id="mid-div"></div>
-    <div id="lower-div"></div>
-  </main>
-</body>
+<!--     end treasure map puzzle -->
 
+   <script src="./js/treasure_puzzle.js"></script>
+   <script src="map.js"></script>
+   <script src="main.js"></script>
+   <script src="./js/main_page.js"></script>
+   <script src="./js/puzzle_one.js"></script>
+   <script src="troll.js"></script>
+   
+  </body>
 </html>
