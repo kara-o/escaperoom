@@ -1,13 +1,13 @@
 function karaPuzzle() {
 
   const trollWords = document.getElementById('troll-words')
-  const karaPuzzleDiv = document.getElementById('kara-puzzle')
+  const karaPuzzleContainer = document.getElementById('kara-puzzle-container')
 
-  document.body.style.backgroundImage = "url('images/fremontTroll.jpg')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";
-  karaPuzzleDiv.style.display = "block";
-  
+  // document.body.style.backgroundImage = "url('images/fremontTroll.jpg')";
+  // document.body.style.backgroundRepeat = "no-repeat";
+  // document.body.style.backgroundSize = "cover";
+  karaPuzzleContainer.style.display = "block";
+
   setTimeout(function () {
     trollWords.textContent = "I know where you have to go next."
   }, 1000);

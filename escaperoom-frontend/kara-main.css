@@ -75,19 +75,32 @@ body {
  }
 }
 
-#kara-puzzle {
+#kara-puzzle-container {
   display: none;
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 960px;
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+#fremont-troll-image {
+  position: absolute;
+  display: block;
+  height: 960px;
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid black;
+  border-radius: 0px;
 }
 
 #troll-words {
-  width: 100px;
+  width: 200px;
   height: 100px;
   background-color: transparent;
   color: white;
   position: absolute;
   left: 1000px;
-  top: 50px;
+  top: 100px;
 }
