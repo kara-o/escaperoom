@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  decreaseTimer();
+  setInterval(() => {
+    decreaseTimer();
+  }, 1000);
 });
 
 function decreaseTimer() {
@@ -7,6 +9,14 @@ function decreaseTimer() {
   time = timer.textContent;
   timeNum = parseInt(time, 10);
   timeNum -= 1;
+  if (timeNum === 0) {
+    loseGame();
+  }
   timer.textContent = timeNum;
 }
-setInterval(decreaseTimer, 1000);
+
+//define loseGame
+// funciton loseGame() {
+//set display to "none" for current level or transition screen
+//display end game screen and score(s)
+// }
