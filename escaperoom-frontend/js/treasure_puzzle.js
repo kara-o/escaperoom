@@ -17,8 +17,8 @@ function treasurePuzzleOff() {
 function loadTreasurePuzzle() {
   const mapGrid = document.getElementById("treasure-map-whole");
   const piecesDiv = document.getElementById("treasure-pieces-div");
-  mapGrid.style.display = "grid"
-  piecesDiv.style.display = "flex"
+  mapGrid.style.display = "grid";
+  piecesDiv.style.display = "flex";
 
   const treasureMapPieces = document.querySelectorAll(".map-piece");
   const treasureMapContainers = document.querySelectorAll(".map-container");
