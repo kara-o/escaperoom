@@ -1,24 +1,39 @@
 const taxi = document.getElementById("taxi")
 const mapContainer = document.getElementById("map-container")
-let dropTarget = document.getElementById("drop-target")
-const seattleMap = document.getElementById("seattle-map-image")
+
 let diffX = 0
 let diffY = 0
-const karaPuzzleDiv = document.getElementById("kara-puzzle")
+
+let intervalId = 0
 
 let dropFailResponse = document.getElementById("drop-fail-response")
 let dropSuccessResponse = document.getElementById("drop-success-response")
 
-function displayTransitionMap() {
-  // body.style.backgroundImage = "url('images/forest.jpg')"
+function displayTransitionMap(targetIdTag, clues) {
+  let dropTarget = document.getElementById(targetIdTag)
+
   mapContainer.style.display = "block";
-  taxi.addEventListener("dragstart", dragstart)
+  taxi.addEventListener("dragstart", dragstart);
 
-  mapContainer.addEventListener("dragover", dragover)
-  mapContainer.addEventListener("dragenter", dragenter)
-  mapContainer.addEventListener("drop", drop)
+  mapContainer.addEventListener("dragover", dragover);
+  mapContainer.addEventListener("dragenter", dragenter);
+  mapContainer.addEventListener("drop", drop);
 
-  dropTarget.addEventListener("drop", dropOnTarget)
+  dropTarget.addEventListener("drop", dropOnTarget);
+
+  displayClues(clues);
+}
+
+function displayClues(clues) {
+  const cluesText = document.getElementById("map-clues")
+  cluesText.textContent = clues[0];
+  let i=1;
+  intervalId = setInterval(function() {
+    console.log('hello')
+    cluesText.textContent = clues[i % clues.length];
+    i++;
+  }, 2000)
+
 }
 
 function dragstart(e) {
@@ -62,6 +77,7 @@ function dropOnTarget(e) {
 }
 
 function clearTransitionMap() {
+  clearInterval(intervalId)
   mapContainer.style.display = "none";
 }
 
