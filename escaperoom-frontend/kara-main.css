@@ -47,6 +47,7 @@ body {
 
 #drop-fail-response {
   display: none;
+  position: absolute;
   text-align: center;
   font-size: 200%;
 }
@@ -54,12 +55,14 @@ body {
 #drop-success-response {
   display: none;
   position: absolute;
-  left: 400px;
-  top: 400px;
-  animation-duration: 2s;
+  font-size: 400%;
+  left: 1000px;
+  top: 500px;
+}
+  /* animation-duration: 1s;
   animation-name: slidein;
-  animation-iteration-count: 2;
-  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-direction: left;
 }
 
 @keyframes slidein {
@@ -69,13 +72,13 @@ body {
  }
 
  to {
-   margin-left: 15%;
+   margin-left: 20%;
    width: 100%;
    font-size: 500%;
  }
-}
+} */
 
-#kara-puzzle-container {
+#troll-puzzle-container {
   display: none;
   position: relative;
   height: 960px;
@@ -86,7 +89,7 @@ body {
 
 #fremont-troll-image {
   position: absolute;
-  display: block;
+  display: none;
   height: 960px;
   width: 1440px;
   margin-left: auto;
