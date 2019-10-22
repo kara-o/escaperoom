@@ -11,10 +11,15 @@ function treasurePuzzleOff() {
   mapGrid.style.display = "none";
   piecesDiv.style.display = "none";
   piecesDivDescendants.style.display = "none";
-  piecesDivDescendants.style.display = "none";
+  mapGridDescendants.style.display = "none";
 }
 
 function loadTreasurePuzzle() {
+  const mapGrid = document.getElementById("treasure-map-whole");
+  const piecesDiv = document.getElementById("treasure-pieces-div");
+  mapGrid.style.display = "grid"
+  piecesDiv.style.display = "flex"
+
   const treasureMapPieces = document.querySelectorAll(".map-piece");
   const treasureMapContainers = document.querySelectorAll(".map-container");
   //probably need to push the grid containers to treasureMapContainers

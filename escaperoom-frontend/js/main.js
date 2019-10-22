@@ -5,28 +5,41 @@ const instructions1 = ['Drag the taxi to your next location on the map.', "Need 
 main();
 
 function main() {
-
-  testLogin()
+  getUsers();
   // loadUsers();
   // displayUsers();
 
 }
 
-function testLogin() {
-    //treasure map???
-    const loginBtn = document.getElementById('test-login-btn')
-    loginBtn.addEventListener('click', function() {
-      document.getElementById('start-page').style.display = "none"
-      displayTransitionMap('drop-target', ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff'], ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]);
-    })
+function getUsers() {
+
+  fetch('http://localhost:3000/users')
+  .then(response => response.json())
+  .then(users =>{
+    login(users)
+  })
+
 }
 
-function login() {
-  loadUsers() //fetching users, put in variable?
-  input.addEventListener('submit', function() {
-      loadUserProfile()
-  })
+function login(users) {
+  console.log(users)
 }
+
+// function login() {
+//     //treasure map???
+//     const loginBtn = document.getElementById('test-login-btn')
+//     loginBtn.addEventListener('click', function() {
+//       document.getElementById('start-page').style.display = "none"
+//       displayTransitionMap('drop-target', ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff'], ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]);
+//     })
+// }
+//
+// function login() {
+//   loadUsers() //fetching users, put in variable?
+//   input.addEventListener('submit', function() {
+//       loadUserProfile()
+//   })
+// }
 
 function loadUserProfile() {
 
@@ -38,7 +51,8 @@ function loadUserProfile() {
   const startGameButton = document.createElement('button')
   startGameButton.addEventListener('click', function() {
     document.getElementsByClassName('dialog-box').forEach(box => box.style.display = "block");
-    displayTransitionMap('drop-target', clues1, instructions1);
+    // displayTransitionMap('drop-target', clues1, instructions1);
+    puzzleOneMain();
   })
 
 }

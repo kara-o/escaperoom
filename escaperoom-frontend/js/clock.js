@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+function startTimer() {
   setInterval(() => {
     decreaseTimer();
   }, 1000);
-});
+}
 
 function decreaseTimer() {
   let timer = document.getElementById("timer");
@@ -13,6 +13,10 @@ function decreaseTimer() {
     loseGame();
   }
   timer.textContent = timeNum;
+}
+
+function stopTimer() {
+  console.log('TIMER STOPPED, GAME WON!!! Last successful puzzle completion will call this timer')
 }
 
 //define loseGame

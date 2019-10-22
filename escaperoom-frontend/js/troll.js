@@ -30,6 +30,4 @@ function trollPuzzleStart() {
 
 function trollQuestions() {
 
-  const
-
 }

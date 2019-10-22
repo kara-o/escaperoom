@@ -4,7 +4,7 @@
 
 body {
   overflow: hidden;
-  background-image: url('images/forest.jpg');
+  background-image: url('../images/forest.jpg');
 }
 
 #page-container {
@@ -23,7 +23,7 @@ body {
   border: 10px solid rgba(155,118,92,0.32);
   border-radius: 0px;
   top: 80px;
-  background-image: url('images/dialog_background.jpg');
+  background-image: url('../images/dialog_background.jpg');
   text-align: center;
 }
 
