@@ -37,5 +37,5 @@
 const loginBtn = document.getElementById('test-login-btn')
 loginBtn.addEventListener('click', function() {
   document.getElementById('start-page').style.display = "none"
-  displayTransitionMap();
+  displayTransitionMap('drop-target', ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']);
 })
