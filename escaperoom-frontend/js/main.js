@@ -23,6 +23,36 @@ function getUsers() {
 
 function login(users) {
   console.log(users)
+  const loginForm = document.getElementById('login-form')
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nameInput = event.target.elements.name.value;
+    iterateThroughUsers(nameInput, users);
+  })
+}
+
+
+  function iterateThroughUsers(nameInput, users){
+    console.log(nameInput,"nameinput","users",users)
+
+    for (const user of users) {
+      console.log(user.name,"user.name",nameInput,"nameInput");
+      if(user.name === nameInput){
+        return welcomeReturningUser();
+      } else {
+        return createNewUser();
+      }
+    }
+  }
+
+
+
+function welcomeReturningUser(){
+  console.log("welcome back existing user!");
+}
+
+function createNewUser(){
+  console.log("welcome new user");
 }
 
 // function login() {
