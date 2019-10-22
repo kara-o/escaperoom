@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'/>
+
+    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" type="text/css" href="css/kara-main.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/treasure-map.css">
+    <link rel="stylesheet" href="css/puzzle_one.css">
+
+    <title>Flatiron Seattle Escape Room</title>
+  </head>
+  <body>
+    <main>
+        <div id=clock-div>
+            <span id="timer">600</span>
+        </div>
+        <h2 id = 'header-id'></h2>
+        <div id="top-div"></div>
+        <div id="mid-div"></div>
+        <div id="lower-div"></div>
+    </main>
+
+    <div id="start-page">
+      Welcome! This is a test login page.
+      <button type="button" id="test-login-btn">Login</button>
+    </div>
+
+    <div id="page-container">
+
+      <div id="left-dialog-box" class="dialog-box">
+        <h2>Clues</h2>
+      </div>
+
+      <div id="transition-map-container">
+        <img src="images/seattleMap.png" alt="image of Google map of Seattle" id="seattle-map-image">
+        <img src="images/taxi48.png" alt="image of yellow cab" id="taxi" draggable="true">
+        <div id="drop-target"></div>
+      </div>
+
+      <div id="right-dialog-box" class="dialog-box">
+        <h2>Instructions</h2>
+      </div>
+
+    </div>
+
+   <div id="troll-puzzle-container">
+     <img src="images/fremontTroll.jpg" alt="image of Fremont troll" id="fremont-troll-image">
+     <p id="troll-words"></p>
+   </div>
+
+<!--     treasure map puzzle -->
+    <div id="treasure-map-whole">
+      <div id="map-container-1" class="map-container map-grid-container"></div>
+      <div id="map-container-2" class="map-container map-grid-container"></div>
+      <div id="map-container-3" class="map-container map-grid-container"></div>
+      <div id="map-container-4" class="map-container map-grid-container"></div>
+      <div id="map-container-5" class="map-container map-grid-container"></div>
+      <div id="map-container-6" class="map-container map-grid-container"></div>
+      <div id="map-container-7" class="map-container map-grid-container"></div>
+      <div id="map-container-8" class="map-container map-grid-container"></div>
+      <div id="map-container-9" class="map-container map-grid-container"></div>
+    </div>
+    <div id="treasure-pieces-div">
+      <div class="map-container map-inline-container">
+        <div id="map-piece-1" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-2" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-3" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-4" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-5" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-6" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-7" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-8" class="map-piece" draggable="true"></div>
+      </div>
+      <div class="map-container map-inline-container">
+        <div id="map-piece-9" class="map-piece" draggable="true"></div>
+      </div>
+    </div>
+<!--     end treasure map puzzle -->
+
+   <script src="js/treasure_puzzle.js"></script>
+   <script src="js/map.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/main_page.js"></script>
+   <script src="js/puzzle_one.js"></script>
+   <script src="js/troll.js"></script>
+
+  </body>
+</html>
