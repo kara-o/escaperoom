@@ -25,12 +25,14 @@ function displayTransitionMap(targetIdTag, clues) {
 }
 
 function displayClues(clues) {
-  const cluesText = document.getElementById("map-clues")
-  cluesText.textContent = clues[0];
+  const cluesBox = document.getElementById("left-dialog-box")
+  const clueWords = document.createElement("p")
+  cluesBox.appendChild(clueWords)
+  clueWords.textContent = clues[0];
   let i=1;
   intervalId = setInterval(function() {
     console.log('hello')
-    cluesText.textContent = clues[i % clues.length];
+    clueWords.textContent = clues[i % clues.length];
     i++;
   }, 2000)
 
