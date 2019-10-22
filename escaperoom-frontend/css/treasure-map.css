@@ -1,0 +1,115 @@
+#treasure-pieces-div {
+  display: flex;
+  width: 100%;
+}
+
+.map-container {
+  background-color: brown;
+}
+
+.map-inline-container {
+  position: inline-block;
+  height: 110px;
+  width: 110px;
+  margin: 5px;
+  border: 3px salmon;
+}
+
+.map-grid-container {
+  height: 100px;
+  width: 100px;
+}
+
+.map-piece {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+
+#map-piece-1 {
+  background-image: url(../images/treasure_map/1.jpg);
+}
+
+#map-piece-2 {
+  background-image: url(../images/treasure_map/2.jpg);
+}
+
+#map-piece-3 {
+  background-image: url(../images/treasure_map/3.jpg);
+}
+
+#map-piece-4 {
+  background-image: url(../images/treasure_map/4.jpg);
+}
+
+#map-piece-5 {
+  background-image: url(../images/treasure_map/5.jpg);
+}
+
+#map-piece-6 {
+  background-image: url(../images/treasure_map/6.jpg);
+}
+
+#map-piece-7 {
+  background-image: url(../images/treasure_map/7.jpg);
+}
+
+#map-piece-8 {
+  background-image: url(../images/treasure_map/8.jpg);
+}
+
+#map-piece-9 {
+  background-image: url(../images/treasure_map/9.jpg);
+}
+
+#treasure-map-whole {
+  background-color: brown;
+  height: 300px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-template-areas:
+    "m1 m2 m3"
+    "m4 m5 m6"
+    "m7 m8 m9";
+}
+
+#map-container-1 {
+  grid-area: m1;
+}
+
+#map-container-2 {
+  grid-area: m2;
+}
+
+#map-container-3 {
+  grid-area: m3;
+}
+
+#map-container-4 {
+  grid-area: m4;
+}
+
+#map-container-5 {
+  grid-area: m5;
+}
+
+#map-container-6 {
+  grid-area: m6;
+}
+
+#map-container-7 {
+  grid-area: m7;
+}
+
+#map-container-8 {
+  grid-area: m8;
+}
+
+#map-container-9 {
+  grid-area: m9;
+}
