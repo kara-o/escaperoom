@@ -1,6 +1,6 @@
-// document.addEventListener('DOMContentLoaded', (event)=>{
-//   main();
-// }) puzzle one is not turned on for the time being.
+document.addEventListener('DOMContentLoaded', (event)=>{
+  main();
+})
 
 function main(){
   addButton();
@@ -21,33 +21,69 @@ function addImage(){
   imageAdded.setAttribute('src','./images/entrance_flatiron.jpg');
   imageAdded.setAttribute('id','image-specific-id');
   imageAdded.setAttribute('alt','flatiron seattle school entrance');
-  let imageLocation = document.getElementsByTagName('main');
-  imageLocation[0].append(imageAdded);
+  let imageLocation = document.getElementById('top-div');
+  imageLocation.append(imageAdded);
 }
 
 function firstbuttonAction(){
 
   function firstDelayedClue(){
-    let firstClue = window.alert("Clue 1 - I have bark, but I am not a dog");
-    firstClue;
+    let headerId = document.getElementById('header-id');
+    let firstClue = document.createElement('div');
+    firstClue.setAttribute('id','first-clue-id');
+    firstClue.innerText = "first clue!\ndivide by two, click\n opposite of vertical\n gravity center";
+    headerId.append(firstClue);
   }
-  window.setTimeout(firstDelayedClue,2000);
+
+  let showingFirstClue = window.setTimeout(firstDelayedClue,2000);
+
+  function removeClue(){
+    let firstClueId = document.getElementById('first-clue-id');
+    firstClueId.style.display = 'none';
+  }
+
+  window.setTimeout(removeClue, 8000);
+
 
   let button = document.getElementById("page-one-specific-button");
-  button.addEventListener('mouseenter', (event) =>{
-    let firstScreen = window.prompt("First Challenge! Which is best for creating constant variables? Var, let or const?","tick tock, tick tock.");
-  
+
+  button.addEventListener('click', (event) =>{
+
+    let locationOfFirstChallenge = document.getElementById('header-id');
+
+    locationOfFirstChallenge.innerText = `First Challenge. Which is best for creating constant variables? Var, let or const?`;
     
-    if (firstScreen === "const"){
-      window.alert("good job!")
-      let secondScreen = window.prompt("A list is the same as a queue","true or false?");
-      if (secondScreen === "false"){
-        window.alert("Nice work!")
-      } else {
-        window.alert("almost")
-      }
-    } else {
-      window.alert("close but no cigar");
-    }
-  })
+    
+    let createForm = document.createElement("FORM");
+    createForm.setAttribute('id','form-specific-id');
+
+    let createInput = document.createElement('INPUT');
+    createInput.setAttribute('type','text');
+    createInput.setAttribute('value','');
+
+    createForm.append(createInput);
+    locationOfFirstChallenge.append(createForm);
+    
+    let formSpecificId = document.getElementById('form-specific-id');
+    formSpecificId.addEventListener('submit', (event)=>{
+      event.preventDefault();
+
+      let formInputAnswer = event.target.elements[0].value;
+      if (formInputAnswer === "const"){
+        let questionSpace = document.getElementById('header-id');
+        questionSpace.innerText = "Success!"; 
+        
+        window.setTimeout(hideAllOnPage,3000);
+        } 
+    })  
+  }) 
+} 
+
+function hideAllOnPage(){
+  let addingClassToHeader = document.getElementById('header-id');
+  let addingClassToTop = document.getElementById('top-div');
+  let addingClassTolower = document.getElementById('lower-div');
+  addingClassToHeader.style.display ='none';
+  addingClassToTop.style.display ='none';
+  addingClassTolower.style.display ='none';
 }
