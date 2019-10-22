@@ -47,12 +47,12 @@ function dropOnTarget(e) {
   taxi.style.top = e.clientY - diffY + "px"
   taxi.style.position = "fixed"
 
-  console.log("TARGET!!!");
+  console.log("TARGET!");
   dropSuccessResponse.style.display = "block";
   setTimeout(function() {
     dropSuccessResponse.style.display = "none";
     clearTransitionMapPage();
-    nextPuzzle(karaPuzzle);
+    nextPuzzle(trollPuzzle);
   }, 3900);
   e.stopPropagation();
 }
