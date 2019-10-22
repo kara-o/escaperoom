@@ -6,9 +6,6 @@ let diffY = 0
 
 let intervalId = 0
 
-let dropFailResponse = document.getElementById("drop-fail-response")
-let dropSuccessResponse = document.getElementById("drop-success-response")
-
 function displayTransitionMap(targetIdTag, clues, instructions) {
   let dropTarget = document.getElementById(targetIdTag)
 
@@ -53,6 +50,7 @@ function displayInstructions(instructions) {
   for (const instruction of instructions) {
     const instructionLi = document.createElement("li")
     instructionLi.style.padding = "10px"
+    instructionLi.id = "instructionListItem"
     instructionLi.textContent = instruction
     instructionsList.appendChild(instructionLi)
   }
@@ -75,13 +73,21 @@ function dragenter(e) {
   e.preventDefault()
 }
 
+// <p id="drop-fail-response">TRY AGAIN!</p>
+// <p id="drop-success-response">SUCCESS!!!!!</p>
+// let dropFailResponse = document.getElementById("drop-fail-response")
+// let dropSuccessResponse = document.getElementById("drop-success-response")
+
 function drop(e) {
   taxi.style.left = e.clientX - diffX + "px"
   taxi.style.top = e.clientY - diffY + "px"
   taxi.style.position = "fixed"
 
   console.log("NOT TARGET")
-  dropFailResponse.style.display = "block"
+  let dropFailResponse = document.createElement("p")
+  dropFailResponse.textContent = "Nope, try again!"
+  const cluesBox = document.getElementById("left-dialog-box")
+  cluesBox.appendChild(dropFailResponse)
 }
 
 function dropOnTarget(e) {
@@ -90,11 +96,17 @@ function dropOnTarget(e) {
   taxi.style.position = "fixed"
 
   console.log("TARGET!");
-  dropSuccessResponse.style.display = "block";
+  let dropSuccessResponse = document.createElement("p")
+  dropSuccessResponse.textContent = "SUCCESS"
+  dropSuccessResponse.style.left = "50%"
+  dropSuccessResponse.style.top = "50%"
+  dropSuccessResponse.style.transform = "rotate(-45deg)"
+  dropSuccessResponse.style.color = "purple"
+  mapContainer.appendChild(dropSuccessResponse)
   setTimeout(function() {
     dropSuccessResponse.style.display = "none";
     clearTransitionMap();
-    nextPuzzle(trollPuzzle);
+    nextPuzzle(trollPuzzleStart);
   }, 1000);
   e.stopPropagation();
 }
@@ -102,6 +114,8 @@ function dropOnTarget(e) {
 function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
+  document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
+  clueWords.remove()
 }
 
 function nextPuzzle(puzzleFunction) {
