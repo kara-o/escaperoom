@@ -15,10 +15,10 @@ function trollPuzzle() {
     trollWords.textContent = "But first..."
   }, 2000);
   setTimeout(function () {
-    trollWords.textContent = "You have to answer some questions!"
+    trollWords.textContent = "You have to correctly answer my questions!"
   }, 3000);
   setTimeout(function () {
-    trollWords.style.display = "none";
+    trollWords.textContent = "";
     trollQuestions()
   }, 4000);
 

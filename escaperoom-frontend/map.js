@@ -9,13 +9,17 @@ const karaPuzzleDiv = document.getElementById("kara-puzzle")
 let dropFailResponse = document.getElementById("drop-fail-response")
 let dropSuccessResponse = document.getElementById("drop-success-response")
 
-taxi.addEventListener("dragstart", dragstart)
+function displayTransitionMap() {
+  // body.style.backgroundImage = "url('images/forest.jpg')"
+  mapContainer.style.display = "block";
+  taxi.addEventListener("dragstart", dragstart)
 
-mapContainer.addEventListener("dragover", dragover)
-mapContainer.addEventListener("dragenter", dragenter)
-mapContainer.addEventListener("drop", drop)
+  mapContainer.addEventListener("dragover", dragover)
+  mapContainer.addEventListener("dragenter", dragenter)
+  mapContainer.addEventListener("drop", drop)
 
-dropTarget.addEventListener("drop", dropOnTarget)
+  dropTarget.addEventListener("drop", dropOnTarget)
+}
 
 function dragstart(e) {
   const rect = taxi.getBoundingClientRect();
@@ -51,16 +55,13 @@ function dropOnTarget(e) {
   dropSuccessResponse.style.display = "block";
   setTimeout(function() {
     dropSuccessResponse.style.display = "none";
-    clearTransitionMapPage();
+    clearTransitionMap();
     nextPuzzle(trollPuzzle);
-  }, 3900);
+  }, 1000);
   e.stopPropagation();
 }
 
-function clearTransitionMapPage() {
-  seattleMap.style.display = "none";
-  taxi.style.display = "none";
-  dropTarget.style.display = "none";
+function clearTransitionMap() {
   mapContainer.style.display = "none";
 }
 
