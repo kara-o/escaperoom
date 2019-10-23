@@ -19,6 +19,10 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
 
   dropTarget.addEventListener("drop", dropOnTarget);
 
+  const dropResponse = document.createElement("p")
+  const cluesBox = document.getElementById("left-dialog-box")
+  cluesBox.appendChild(dropResponse)
+
   displayClues(clues);
   displayInstructions(instructions);
 }
@@ -26,9 +30,11 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
 function displayClues(clues) {
   const cluesBox = document.getElementById("left-dialog-box")
   cluesBox.style.display = "block"
+  const cluesHeader = document.createElement('h2')
+  cluesHeader.textContent = "Clues"
   const clueWords = document.createElement("p")
   clueWords.id = "left-dialog-words"
-  cluesBox.appendChild(clueWords)
+  cluesBox.append(cluesHeader, clueWords)
   clueWords.style.padding = "10px"
   clueWords.textContent = clues[0];
   let i=1;
@@ -65,7 +71,7 @@ function dragstart(e) {
   const rect = taxi.getBoundingClientRect();
   diffX = e.clientX - rect.left
   diffY = e.clientY - rect.top
-  dropFailResponse.style.display = "none"
+  dropResponse.textContent = ""
 }
 
 function dragover(e) {
@@ -88,10 +94,7 @@ function drop(e) {
   taxi.style.position = "fixed"
 
   console.log("NOT TARGET")
-  let dropFailResponse = document.createElement("p")
-  dropFailResponse.textContent = "Nope, try again!"
-  const cluesBox = document.getElementById("left-dialog-box")
-  cluesBox.appendChild(dropFailResponse)
+  dropResponse.textContent = "Nope, try again!"
 }
 
 function dropOnTarget(e) {
@@ -100,27 +103,24 @@ function dropOnTarget(e) {
   taxi.style.position = "fixed"
 
   console.log("TARGET!");
-  let dropSuccessResponse = document.createElement("p")
-  dropSuccessResponse.textContent = "SUCCESS"
-  dropSuccessResponse.style.left = "500px"
-  dropSuccessResponse.style.top = "500px"
-  dropSuccessResponse.style.transform = "rotate(-45deg)"
-  dropSuccessResponse.style.color = "purple"
-  dropSuccessResponse.style.fontsize = "300%"
-  mapContainer.appendChild(dropSuccessResponse)
+  dropResponse.textContent = "SUCCESS!"
   setTimeout(function() {
-    dropSuccessResponse.style.display = "none";
+    dropResponse.textContent = `Off we go!`
+  }, 1000)
+  setTimeout(function() {
+    dropResponse.style.display = "none";
     clearTransitionMap();
     nextPuzzle(trollPuzzleStart);
-  }, 1000);
+  }, 2000);
   e.stopPropagation();
 }
 
 function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
-  document.getElementById("right-dialog-box").style.display = "none"
-  document.getElementById("left-dialog-box").innerHTML = ""
+  document.getElementById("right-dialog-box").style.display = "none";
+  document.getElementById("left-dialog-words").remove();
+  document.getElementById("left-dialog-box").style.display = "none";
 
   // document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
   // document.getElementById("left-dialog-words").style.display = 'none';

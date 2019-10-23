@@ -46,18 +46,35 @@ function welcomeReturningUser(user){
 }
 
 function createNewUser(){
+  const loginForm = document.getElementById('login-form');
+  loginForm.remove();
+  const welcomeMsg = document.getElementById('login-msg');
+  welcomeMsg.textContent = `Welcome, ${user.name}!`;
   startGame();
 }
 
 function startGame() {
   const startPage = document.getElementById('start-page')
-  const startGameBtn = document.createElement("button")
-  startGameBtn.textContent = "Start Game"
-  startPage.appendChild(startGameBtn)
-  startGameBtn.addEventListener('click', () => {
-    clearStartPage();
-    puzzleOneStart();
-  })
+  const welcomeMsg = document.getElementById('login-msg');
+  const gameDescription = document.createElement("p")
+  welcomeMsg.append(gameDescription)
+  gameDescription.textContent = "We are so glad you are here!"
+  setTimeout(function() {
+    gameDescription.textContent = "Someone stole all of the Ruby gems and left clues and puzzles all over Flatiron Campus and Seattle."
+  }, 2000)
+  setTimeout(function() {
+    gameDescription.textContent = "We need to get the Ruby gems back.  Please help!"
+  }, 4000)
+  setTimeout(function() {
+    gameDescription.textContent = "Press START GAME if you are ready to begin."
+    const startGameBtn = document.createElement("button")
+    startGameBtn.textContent = "START GAME"
+    startPage.appendChild(startGameBtn)
+    startGameBtn.addEventListener('click', () => {
+      clearStartPage();
+      puzzleOneStart();
+    })
+  }, 6000)
 }
 
 function clearStartPage() {
