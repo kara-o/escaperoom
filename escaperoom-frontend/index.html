@@ -14,17 +14,22 @@
     <title>Flatiron Seattle Escape Room</title>
   </head>
   <body>
-    <main>
-        <div id=clock-div>
-            <span id="timer"></span>
-        </div>
+    <!-- clock -->
+    <div id=clock-div>
+        <span id="timer"></span>
+    </div>
+    <!-- end clock -->
 
-        <h2 id= 'header-id'></h2>
-        <div id="top-div"></div>
-        <div id="mid-div"></div>
-        <div id="lower-div"></div>
-    </main>
+    <!-- puzzle 1 -->
+    <div id="puzzle-one-page-container">
+      <h2 id= 'header-id'></h2>
+      <div id="top-div"></div>
+      <div id="mid-div"></div>
+      <div id="lower-div"></div>
+    </div>
+    <!-- end puzzle 1 -->
 
+    <!-- start page -->
     <div id="start-page">
       <h2 id="login-msg">Welcome To Escape Room</h2>
       <form id="login-form">
@@ -32,7 +37,9 @@
         <input type="submit" value="Submit">
       </form>
     </div>
+    <!-- end start page -->
 
+    <!-- map with side dialog boxes -->
     <div id="page-container">
 
       <div id="left-dialog-box" class="dialog-box">
@@ -50,11 +57,14 @@
       </div>
 
     </div>
+    <!-- end map with side dialog boxes -->
 
+    <!-- troll -->
    <div id="troll-puzzle-container">
      <img src="images/fremontTroll.jpg" alt="image of Fremont troll" id="fremont-troll-image">
      <p id="troll-words"></p>
    </div>
+   <!-- end troll -->
 
 <!--     treasure map puzzle -->
     <div id="treasure-map-whole">

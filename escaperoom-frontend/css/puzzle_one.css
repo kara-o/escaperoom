@@ -1,17 +1,37 @@
 
+#puzzle-one-page-container {
+  display: flex;
+  flex-direction: row;
+}
+
 #image-specific-id {
-  height: 70%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#top-div {
+  height: 800px;
   width: 70%;
   position: relative;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid black;
+  border-radius: 0px;
+}
+
+#mid-div, #lower-div {
+  display: none;
 }
 
 #page-one-specific-button {
-  top: 500px;
-  right:1000px;
   padding: 50px 50px;
   color: transparent;
-  background-color:transparent;
-  position:absolute;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   border-color: transparent;
 }
 
