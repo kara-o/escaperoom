@@ -1,14 +1,23 @@
 const taxi = document.getElementById("taxi")
 const mapContainer = document.getElementById("transition-map-container")
+const dropResponse = document.createElement("p")
+const cluesBox = document.getElementById("left-dialog-box")
+
 
 let diffX = 0
 let diffY = 0
 
 let intervalId = 0
 
+// width: 120px;
+//     height: 100px;
+//     top: 220px;
+//     left: 40px;
+
 function displayTransitionMap(targetIdTag, clues, instructions) {
 
-  let dropTarget = document.getElementById(targetIdTag)
+  let dropTarget = document.getElementById(targetIdTag);
+  dropTarget.style.display = "block";
 
   mapContainer.style.display = "block";
   taxi.addEventListener("dragstart", dragstart);
@@ -19,10 +28,6 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
 
   dropTarget.addEventListener("drop", dropOnTarget);
 
-  const dropResponse = document.createElement("p")
-  const cluesBox = document.getElementById("left-dialog-box")
-  cluesBox.appendChild(dropResponse)
-
   displayClues(clues);
   displayInstructions(instructions);
 }
@@ -31,10 +36,11 @@ function displayClues(clues) {
   const cluesBox = document.getElementById("left-dialog-box")
   cluesBox.style.display = "block"
   const cluesHeader = document.createElement('h2')
+  cluesHeader.id = "clues-header"
   cluesHeader.textContent = "Clues"
   const clueWords = document.createElement("p")
   clueWords.id = "left-dialog-words"
-  cluesBox.append(cluesHeader, clueWords)
+  cluesBox.append(cluesHeader, clueWords, dropResponse)
   clueWords.style.padding = "10px"
   clueWords.textContent = clues[0];
   let i=1;
@@ -59,7 +65,7 @@ function displayInstructions(instructions) {
 
   for (const instruction of instructions) {
     const instructionLi = document.createElement("li")
-    instructionLi.style.padding = "10px"
+    instructionLi.style.padding = "10px 10px 10px 0px"
     instructionLi.id = "instructionListItem"
     instructionLi.textContent = instruction
     instructionsList.appendChild(instructionLi)
@@ -103,6 +109,8 @@ function dropOnTarget(e) {
   taxi.style.position = "fixed"
 
   console.log("TARGET!");
+  document.getElementById("clues-header").remove();
+  document.getElementById("left-dialog-words").remove();
   dropResponse.textContent = "SUCCESS!"
   setTimeout(function() {
     dropResponse.textContent = `Off we go!`
@@ -119,7 +127,6 @@ function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
   document.getElementById("right-dialog-box").style.display = "none";
-  document.getElementById("left-dialog-words").remove();
   document.getElementById("left-dialog-box").style.display = "none";
 
   // document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
