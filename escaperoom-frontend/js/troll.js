@@ -10,10 +10,12 @@ function trollPuzzleStart() {
   trollImg.style.display = "block"
   trollWords.style.bottom = "50%"
 
-  trollWords.textContent = "TROLL: You found me!"
+  setTimeout(function () {
+    trollWords.textContent = "TROLL: You found me!"
+  }, 1000);
   setTimeout(function () {
     trollWords.textContent = "TROLL: Are you ready for your final challenge?"
-  }, 2000);
+  }, 3000);
   // setTimeout(function () {
   //   trollWords.textContent = "But first..."
   // }, 4000);

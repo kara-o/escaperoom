@@ -90,7 +90,7 @@ function checkPuzzleSuccess() {
   if (arraysEqual(containerChildIds, puzzleAnswer)) {
    //SUCCESS MESSAGE!!!
     const clues2 = ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']
-    const instructions = ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]
+    const instructions = ['Drag the taxi to your next location on the map.']
     treasurePuzzleOff();
     displayTransitionMap("troll-drop-target", clues2, instructions, trollPuzzleStart);
   }

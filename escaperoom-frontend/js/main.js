@@ -3,13 +3,9 @@ main();
 
 function main() {
   getUsers();
-  // loadUsers();
-  // displayUsers();
-
 }
 
 function getUsers() {
-
   fetch('http://localhost:3000/users')
   .then(response => response.json())
   .then(users =>{
@@ -116,7 +112,7 @@ function loadNarrative() {
   paperMessage.id = 'paper-message'
   document.body.appendChild(paperMessage)
 
-  narrativeSentences = ['Dear Flatiron Student,', 'We need your help.', 'Someone has stolen all of the Ruby gems!', 'The thief hid clues and puzzles all throughout campus and Seattle', 'and is only giving us 10 minutes to solve them all!', 'HURRY!']
+  const narrativeSentences = ['Dear Flatiron Student,', 'We need your help.', 'Someone has stolen all of the Ruby gems!', 'The thief hid clues and puzzles all throughout campus and Seattle', 'and is only giving us 10 minutes to solve them all!', 'HURRY!']
 
   // const sentence1 = document.createElement("p")
   // sentence1.textContent = narrativeSentences[0]
@@ -133,7 +129,6 @@ function loadNarrative() {
 
   const startTimerBtn = document.createElement('button')
   startTimerBtn.textContent = "Start Timer"
-  startTimerBtn.id = "start-timer-btn"
   startTimerBtn.padding = "10px"
   paperMessage.appendChild(startTimerBtn)
 
