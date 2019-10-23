@@ -51,6 +51,7 @@ function createNewUser() {
 }
 
 function viewScores() {
+
   const scoresContainer = document.createElement('div')
   const scoresHeader = document.createElement('h3')
   const scoresList = document.createElement('ul')
@@ -78,7 +79,8 @@ function startGame() {
   startPage.appendChild(startGameBtn)
   startGameBtn.addEventListener('click', () => {
     clearStartPage();
-    puzzleOneStart();
+    loadNarrative();
+    // puzzleOneStart();
   });
 }
   // setTimeout(function() {
@@ -101,7 +103,44 @@ function clearStartPage() {
 function loadNarrative() {
   const paperMessage = document.createElement("div")
   paperMessage.id = 'paper-message'
+  document.body.appendChild(paperMessage)
+
+  narrativeSentences = ['Dear Flatiron Student,', 'We need your help.', 'Someone has stolen all of the Ruby gems!', 'The thief hid clues and puzzles all throughout campus and Seattle', 'and is only giving us 10 minutes to solve them all!', 'HURRY!']
+
+  // const sentence1 = document.createElement("p")
+  // sentence1.textContent = narrativeSentences[0]
+  // sentence1.style.padding = "10px 10px 10px 10px"
+  // paperMessage.appendChild(sentence1)
+
+  for (let i = 0; i < narrativeSentences.length; i++) {
+    let padding = 10
+    let sentence = document.createElement("p")
+    sentence.textContent = narrativeSentences[i]
+    sentence.style.padding = `${padding + i + 2}px 10px 10px 10px`
+    paperMessage.appendChild(sentence)
+  }
+
+  const startTimerBtn = document.createElement('button')
+  startTimerBtn.textContent = "Start Timer"
+  startTimerBtn.id = "start-timer-btn"
+  startTimerBtn.padding = "10px"
+  paperMessage.appendChild(startTimerBtn)
+
+  startTimerBtn.addEventListener('click', () => {
+    paperMessage.remove();
+    puzzleOneStart();
+  })
+
 }
+//
+
+  // for (sentence of narrativeSentences) {
+  //   const narrativeSentence = document.createElement("p")
+  //   narrativeSentence.textContent = sentence
+  //   narrativeSentence.style.padding = "10px 10px 10px 10px"
+  //   paperMessage.appendChild(narrativeSentence)
+  // }
+// }
 
 // function login() {
 //     //treasure map???
