@@ -19,6 +19,7 @@ function getUsers() {
 }
 
 function login(users) {
+  console.log(users)
   const loginForm = document.getElementById('login-form')
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
