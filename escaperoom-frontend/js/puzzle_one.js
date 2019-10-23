@@ -1,4 +1,4 @@
-function puzzleOneMain(){
+function puzzleOneStart(){
   startTimer();
   addButton();
   addImage();
@@ -70,7 +70,13 @@ function firstbuttonAction(){
         let questionSpace = document.getElementById('header-id');
         questionSpace.innerText = "Success!";
 
-        window.setTimeout(hideAllOnPage,3000);
+        window.setTimeout(() => {
+          const clues1 = ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']
+          const instructions1 = ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]
+
+          hideAllOnPage();
+          displayTransitionMap('drop-target', clues1, instructions1);
+        },1000);
         }
     })
   })

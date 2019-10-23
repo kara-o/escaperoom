@@ -1,6 +1,3 @@
-const clues1 = ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']
-const instructions1 = ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]
-
 
 main();
 
@@ -22,7 +19,6 @@ function getUsers() {
 }
 
 function login(users) {
-  console.log(users)
   const loginForm = document.getElementById('login-form')
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -32,27 +28,41 @@ function login(users) {
 }
 
 
-  function iterateThroughUsers(nameInput, users){
-    console.log(nameInput,"nameinput","users",users)
-
-    for (const user of users) {
-      console.log(user.name,"user.name",nameInput,"nameInput");
-      if(user.name === nameInput){
-        return welcomeReturningUser();
-      } else {
-        return createNewUser();
-      }
+function iterateThroughUsers(nameInput, users) {
+  for (const user of users) {
+    if (user.name.toLowerCase() === nameInput.toLowerCase()) {
+      return welcomeReturningUser(user);
     }
   }
+  createNewUser();
+}
 
-
-
-function welcomeReturningUser(){
-  console.log("welcome back existing user!");
+function welcomeReturningUser(user){
+  const loginForm = document.getElementById('login-form');
+  loginForm.remove();
+  const welcomeMsg = document.getElementById('login-msg');
+  welcomeMsg.textContent = `Welcome Back, ${user.name}!`;
+  startGame();
 }
 
 function createNewUser(){
-  console.log("welcome new user");
+  startGame();
+}
+
+function startGame() {
+  const startPage = document.getElementById('start-page')
+  const startGameBtn = document.createElement("button")
+  startGameBtn.textContent = "Start Game"
+  startPage.appendChild(startGameBtn)
+  startGameBtn.addEventListener('click', () => {
+    clearStartPage();
+    puzzleOneStart();
+  })
+}
+
+function clearStartPage() {
+  const startPage = document.getElementById('start-page')
+  startPage.remove();
 }
 
 // function login() {
@@ -86,6 +96,7 @@ function loadUserProfile() {
   })
 
 }
+
 
 
 
