@@ -34,7 +34,7 @@ function iterateThroughUsers(nameInput, users) {
       return welcomePage(user);
     }
   }
-  createNewUser();
+  createNewUser(nameInput);
 }
 
 function welcomePage(user){
@@ -46,19 +46,28 @@ function welcomePage(user){
   startGame();
 }
 
-function createNewUser() {
-  welcomePage(user);
+function createNewUser(nameInput){
+  fetch("http://localhost:3000/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": 'application/json',
+      Accepts : 'application/json'
+    },
+    body: JSON.stringify({
+      name: nameInput
+    })
+  })
+  .then(res=> res.json())
+  .then(welcomePage)
 }
 
 function viewScores() {
-
   const scoresContainer = document.createElement('div')
   const scoresHeader = document.createElement('h3')
   const scoresList = document.createElement('ul')
   scoresHeader.textContent = "Your Past Scores: "
   document.getElementById('start-page').appendChild(scoresContainer)
   scoresContainer.append(scoresHeader, scoresList)
-
 }
 
 function startGame() {

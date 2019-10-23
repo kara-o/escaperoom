@@ -8,5 +8,6 @@ class User < ApplicationRecord
       puts "#{index + 1}. #{score.game.name}: #{score.time} seconds"
     end
   end
+  
 
 end
