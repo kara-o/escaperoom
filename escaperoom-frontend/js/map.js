@@ -7,7 +7,7 @@ let diffY = 0
 let intervalId = 0
 
 function displayTransitionMap(targetIdTag, clues, instructions) {
-  
+
   let dropTarget = document.getElementById(targetIdTag)
 
   mapContainer.style.display = "block";
@@ -25,7 +25,9 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
 
 function displayClues(clues) {
   const cluesBox = document.getElementById("left-dialog-box")
+  cluesBox.style.display = "block"
   const clueWords = document.createElement("p")
+  clueWords.id = "left-dialog-words"
   cluesBox.appendChild(clueWords)
   clueWords.style.padding = "10px"
   clueWords.textContent = clues[0];
@@ -35,16 +37,17 @@ function displayClues(clues) {
     clueWords.textContent = clues[i % clues.length];
     i++;
   }, 2000);
-  const moreCluesBtn = document.createElement('button');
-  cluesBox.appendChild(moreCluesBtn)
-  moreCluesBtn.textContent = "More Clues";
-  moreCluesBtn.style.position = "absolute";
-  moreCluesBtn.style.width = "40%"
-  moreCluesBtn.style.height = "40px";
+  // const moreCluesBtn = document.createElement('button');
+  // cluesBox.appendChild(moreCluesBtn)
+  // moreCluesBtn.textContent = "More Clues";
+  // moreCluesBtn.style.position = "absolute";
+  // moreCluesBtn.style.width = "40%"
+  // moreCluesBtn.style.height = "40px";
 }
 
 function displayInstructions(instructions) {
   const instructionsBox = document.getElementById("right-dialog-box")
+  instructionsBox.style.display = "block"
   const instructionsList = document.createElement('ul')
   instructionsBox.appendChild(instructionsList)
 
@@ -99,10 +102,11 @@ function dropOnTarget(e) {
   console.log("TARGET!");
   let dropSuccessResponse = document.createElement("p")
   dropSuccessResponse.textContent = "SUCCESS"
-  dropSuccessResponse.style.left = "50%"
-  dropSuccessResponse.style.top = "50%"
+  dropSuccessResponse.style.left = "500px"
+  dropSuccessResponse.style.top = "500px"
   dropSuccessResponse.style.transform = "rotate(-45deg)"
   dropSuccessResponse.style.color = "purple"
+  dropSuccessResponse.style.fontsize = "300%"
   mapContainer.appendChild(dropSuccessResponse)
   setTimeout(function() {
     dropSuccessResponse.style.display = "none";
@@ -115,8 +119,11 @@ function dropOnTarget(e) {
 function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
-  document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
-  clueWords.remove()
+  document.getElementById("right-dialog-box").style.display = "none"
+  document.getElementById("left-dialog-box").innerHTML = ""
+
+  // document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
+  // document.getElementById("left-dialog-words").style.display = 'none';
 }
 
 function nextPuzzle(puzzleFunction) {
