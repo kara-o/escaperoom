@@ -10,8 +10,8 @@ function treasurePuzzleOff() {
   const piecesDivDescendants = piecesDiv.querySelectorAll("*");
   mapGrid.style.display = "none";
   piecesDiv.style.display = "none";
-  piecesDivDescendants.style.display = "none";
-  mapGridDescendants.style.display = "none";
+  piecesDivDescendants.forEach(x => x.style.display = "none");
+  mapGridDescendants.forEach(x => x.style.display = "none");
 }
 
 function loadTreasurePuzzle() {
@@ -87,7 +87,13 @@ function checkPuzzleSuccess() {
   }
   console.log(typeof containerChildIds);
   console.log(typeof puzzleAnswer);
-  return arraysEqual(containerChildIds, puzzleAnswer);
+  if (arraysEqual(containerChildIds, puzzleAnswer)) {
+   //SUCCESS MESSAGE!!!
+    const clues2 = ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']
+    const instructions = ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]
+    treasurePuzzleOff();
+    displayTransitionMap("troll-drop-target", clues2, instructions, trollPuzzleStart);
+  }
 }
 
 function arraysEqual(a, b) {
