@@ -23,12 +23,10 @@ body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 100
-
+  width: 100%;
 }
 
 .dialog-box {
-  display: none;
   position: absolute;
   width: 18%;
   height: 400px;
@@ -41,10 +39,12 @@ body {
 
 #left-dialog-box {
   left: 0;
+  display: none;
 }
 
 #right-dialog-box {
   right: 0;
+  display: none;
 }
 
 #transition-map-container {
@@ -88,8 +88,8 @@ body {
   width: 80px;
   height: 50px;
   top: 300px;
-  left: 468px;
-  background-color: transparent;
+  left: 345px;
+  background-color: white;
 }
 
 #troll-puzzle-container {

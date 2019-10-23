@@ -1,16 +1,8 @@
 function puzzleOneStart(){
   startTimer();
-  addButton();
   addImage();
+  addButton();
   firstbuttonAction();
-}
-
-function addButton(){
-  let button = document.createElement("button");
-  button.setAttribute('id','page-one-specific-button');
-  button.innerText = "  ";
-  let lowerDiv = document.getElementById('lower-div');
-  lowerDiv.append(button);
 }
 
 function addImage(){
@@ -19,10 +11,24 @@ function addImage(){
   imageAdded.setAttribute('id','image-specific-id');
   imageAdded.setAttribute('alt','flatiron seattle school entrance');
   let imageLocation = document.getElementById('top-div');
+  imageLocation.style.display = "block";
   imageLocation.append(imageAdded);
 }
 
+function addButton(){
+  let button = document.createElement("button");
+  button.setAttribute('id','page-one-specific-button');
+  button.innerText = "  ";
+  let buttonContainer = document.getElementById('top-div');
+  buttonContainer.style.display = "block"
+  buttonContainer.append(button);
+}
+
 function firstbuttonAction(){
+
+  const cluesBox = document.getElementById("left-dialog-box")
+  cluesBox.style.display = "block"
+
 
   function firstDelayedClue(){
     let headerId = document.getElementById('header-id');
@@ -58,7 +64,11 @@ function firstbuttonAction(){
     createInput.setAttribute('type','text');
     createInput.setAttribute('value','');
 
-    createForm.append(createInput);
+    let submitInput = document.createElement('input');
+    submitInput.setAttribute('type','submit');
+    submitInput.setAttribute('value', "Submit")
+
+    createForm.append(createInput, submitInput);
     locationOfFirstChallenge.append(createForm);
 
     let formSpecificId = document.getElementById('form-specific-id');

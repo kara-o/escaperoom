@@ -80,22 +80,22 @@ function clearStartPage() {
 //       loadUserProfile()
 //   })
 // }
-
-function loadUserProfile() {
-
-  //if user is new, post new user info and say "welcome!"
-  //else say 'welcome back!'
-
-  //make a user class?
-
-  const startGameButton = document.createElement('button')
-  startGameButton.addEventListener('click', function() {
-    document.getElementsByClassName('dialog-box').forEach(box => box.style.display = "block");
-    // displayTransitionMap('drop-target', clues1, instructions1);
-    puzzleOneMain();
-  })
-
-}
+//
+// function loadUserProfile() {
+//
+//   //if user is new, post new user info and say "welcome!"
+//   //else say 'welcome back!'
+//
+//   //make a user class?
+//
+//   const startGameButton = document.createElement('button')
+//   startGameButton.addEventListener('click', function() {
+//     document.getElementsByClassName('dialog-box').forEach(box => box.style.display = "block");
+//     // displayTransitionMap('drop-target', clues1, instructions1);
+//     puzzleOneMain();
+//   })
+//
+// }
 
 
 
