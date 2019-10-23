@@ -1,14 +1,23 @@
 const taxi = document.getElementById("taxi")
 const mapContainer = document.getElementById("transition-map-container")
+const dropResponse = document.createElement("p")
+const cluesBox = document.getElementById("left-dialog-box")
+
 
 let diffX = 0
 let diffY = 0
 
 let intervalId = 0
 
+// width: 120px;
+//     height: 100px;
+//     top: 220px;
+//     left: 40px;
+
 function displayTransitionMap(targetIdTag, clues, instructions) {
-  
-  let dropTarget = document.getElementById(targetIdTag)
+
+  let dropTarget = document.getElementById(targetIdTag);
+  dropTarget.style.display = "block";
 
   mapContainer.style.display = "block";
   taxi.addEventListener("dragstart", dragstart);
@@ -25,8 +34,13 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
 
 function displayClues(clues) {
   const cluesBox = document.getElementById("left-dialog-box")
+  cluesBox.style.display = "block"
+  const cluesHeader = document.createElement('h2')
+  cluesHeader.id = "clues-header"
+  cluesHeader.textContent = "Clues"
   const clueWords = document.createElement("p")
-  cluesBox.appendChild(clueWords)
+  clueWords.id = "left-dialog-words"
+  cluesBox.append(cluesHeader, clueWords, dropResponse)
   clueWords.style.padding = "10px"
   clueWords.textContent = clues[0];
   let i=1;
@@ -35,22 +49,23 @@ function displayClues(clues) {
     clueWords.textContent = clues[i % clues.length];
     i++;
   }, 2000);
-  const moreCluesBtn = document.createElement('button');
-  cluesBox.appendChild(moreCluesBtn)
-  moreCluesBtn.textContent = "More Clues";
-  moreCluesBtn.style.position = "absolute";
-  moreCluesBtn.style.width = "40%"
-  moreCluesBtn.style.height = "40px";
+  // const moreCluesBtn = document.createElement('button');
+  // cluesBox.appendChild(moreCluesBtn)
+  // moreCluesBtn.textContent = "More Clues";
+  // moreCluesBtn.style.position = "absolute";
+  // moreCluesBtn.style.width = "40%"
+  // moreCluesBtn.style.height = "40px";
 }
 
 function displayInstructions(instructions) {
   const instructionsBox = document.getElementById("right-dialog-box")
+  instructionsBox.style.display = "block"
   const instructionsList = document.createElement('ul')
   instructionsBox.appendChild(instructionsList)
 
   for (const instruction of instructions) {
     const instructionLi = document.createElement("li")
-    instructionLi.style.padding = "10px"
+    instructionLi.style.padding = "10px 10px 10px 0px"
     instructionLi.id = "instructionListItem"
     instructionLi.textContent = instruction
     instructionsList.appendChild(instructionLi)
@@ -62,7 +77,7 @@ function dragstart(e) {
   const rect = taxi.getBoundingClientRect();
   diffX = e.clientX - rect.left
   diffY = e.clientY - rect.top
-  dropFailResponse.style.display = "none"
+  dropResponse.textContent = ""
 }
 
 function dragover(e) {
@@ -85,10 +100,7 @@ function drop(e) {
   taxi.style.position = "fixed"
 
   console.log("NOT TARGET")
-  let dropFailResponse = document.createElement("p")
-  dropFailResponse.textContent = "Nope, try again!"
-  const cluesBox = document.getElementById("left-dialog-box")
-  cluesBox.appendChild(dropFailResponse)
+  dropResponse.textContent = "Nope, try again!"
 }
 
 function dropOnTarget(e) {
@@ -97,26 +109,28 @@ function dropOnTarget(e) {
   taxi.style.position = "fixed"
 
   console.log("TARGET!");
-  let dropSuccessResponse = document.createElement("p")
-  dropSuccessResponse.textContent = "SUCCESS"
-  dropSuccessResponse.style.left = "50%"
-  dropSuccessResponse.style.top = "50%"
-  dropSuccessResponse.style.transform = "rotate(-45deg)"
-  dropSuccessResponse.style.color = "purple"
-  mapContainer.appendChild(dropSuccessResponse)
+  document.getElementById("clues-header").remove();
+  document.getElementById("left-dialog-words").remove();
+  dropResponse.textContent = "SUCCESS!"
   setTimeout(function() {
-    dropSuccessResponse.style.display = "none";
+    dropResponse.textContent = `Off we go!`
+  }, 1000)
+  setTimeout(function() {
+    dropResponse.style.display = "none";
     clearTransitionMap();
     nextPuzzle(trollPuzzleStart);
-  }, 1000);
+  }, 2000);
   e.stopPropagation();
 }
 
 function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
-  document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
-  clueWords.remove()
+  document.getElementById("right-dialog-box").style.display = "none";
+  document.getElementById("left-dialog-box").style.display = "none";
+
+  // document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
+  // document.getElementById("left-dialog-words").style.display = 'none';
 }
 
 function nextPuzzle(puzzleFunction) {
