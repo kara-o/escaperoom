@@ -31,55 +31,76 @@ function login(users) {
 function iterateThroughUsers(nameInput, users) {
   for (const user of users) {
     if (user.name.toLowerCase() === nameInput.toLowerCase()) {
-      return welcomeReturningUser(user);
+      return welcomePage(user);
     }
   }
   createNewUser();
 }
 
-function welcomeReturningUser(user){
-  const loginForm = document.getElementById('login-form');
-  loginForm.remove();
-  const welcomeMsg = document.getElementById('login-msg');
-  welcomeMsg.textContent = `Welcome Back, ${user.name}!`;
-  startGame();
-}
-
-function createNewUser(){
+function welcomePage(user){
   const loginForm = document.getElementById('login-form');
   loginForm.remove();
   const welcomeMsg = document.getElementById('login-msg');
   welcomeMsg.textContent = `Welcome, ${user.name}!`;
+  viewScores();
   startGame();
+}
+
+function createNewUser() {
+  welcomePage(user);
+}
+
+function viewScores() {
+  const scoresContainer = document.createElement('div')
+  const scoresHeader = document.createElement('h3')
+  const scoresList = document.createElement('ul')
+  scoresHeader.textContent = "Your Past Scores: "
+  document.getElementById('start-page').appendChild(scoresContainer)
+  scoresContainer.append(scoresHeader, scoresList)
+
 }
 
 function startGame() {
   const startPage = document.getElementById('start-page')
-  const welcomeMsg = document.getElementById('login-msg');
-  const gameDescription = document.createElement("p")
-  welcomeMsg.append(gameDescription)
-  gameDescription.textContent = "We are so glad you are here!"
-  setTimeout(function() {
-    gameDescription.textContent = "Someone stole all of the Ruby gems and left clues and puzzles all over Flatiron Campus and Seattle."
-  }, 2000)
-  setTimeout(function() {
-    gameDescription.textContent = "We need to get the Ruby gems back.  Please help!"
-  }, 4000)
-  setTimeout(function() {
-    gameDescription.textContent = "Press START GAME if you are ready to begin."
-    const startGameBtn = document.createElement("button")
-    startGameBtn.textContent = "START GAME"
-    startPage.appendChild(startGameBtn)
-    startGameBtn.addEventListener('click', () => {
-      clearStartPage();
-      puzzleOneStart();
-    })
-  }, 6000)
+  const gameDescription = document.createElement("h3")
+  startPage.append(gameDescription)
+
+  // gameDescription.textContent = "We are so glad you are here!"
+  // setTimeout(function() {
+  //   gameDescription.textContent = "Someone stole all of the Ruby gems and left clues and puzzles all over Flatiron Campus and Seattle."
+  // }, 2000)
+  // setTimeout(function() {
+  //   gameDescription.textContent = "We need to get the Ruby gems back.  Please help!"
+  // }, 4000)
+  gameDescription.textContent = "Press START GAME if you are ready to begin."
+  const startGameBtn = document.createElement("button")
+  startGameBtn.textContent = "START GAME"
+  startPage.appendChild(startGameBtn)
+  startGameBtn.addEventListener('click', () => {
+    clearStartPage();
+    puzzleOneStart();
+  });
 }
+  // setTimeout(function() {
+  //   gameDescription.textContent = "Press START GAME if you are ready to begin."
+  //   const startGameBtn = document.createElement("button")
+  //   startGameBtn.textContent = "START GAME"
+  //   startPage.appendChild(startGameBtn)
+  //   startGameBtn.addEventListener('click', () => {
+  //     clearStartPage();
+  //     puzzleOneStart();
+  //   })
+  // }, 2000)
+
 
 function clearStartPage() {
   const startPage = document.getElementById('start-page')
   startPage.remove();
+}
+
+function loadNarrative() {
+  const paperMessage = document.createElement("div")
+  paperMessage.id = 'paper-message'
 }
 
 // function login() {
