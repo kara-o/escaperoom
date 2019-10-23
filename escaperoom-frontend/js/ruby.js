@@ -24,19 +24,20 @@ class Ruby {
     ruby.style.display = "block";
   }
 
-  static removeAllRubies {
-    document.querySelectorAll("#spin-in").forEach( r => r.remove() )
+  static removeAllRubies() {
+    document.querySelectorAll("#spin-in").forEach(r => r.remove())
   }
 }
 
-generateRubies() {
-  let ruby1 = new Ruby("spin-in", "ruby", "../images/rubies/ruby1.png", "20px", "500px")
-  let ruby2 = new Ruby("spin-in", "ruby", "../images/rubies/ruby1.png", "600px", "10px")
-  ruby1.newRubyOnPage(document.getElementById("troll-puzzle-container"))
-  ruby1.newRubyOnPage(document.getElementById("troll-puzzle-container"))
-  ruby1.throwRuby('show1')
-  ruby2.throwRuby('show2')
-}
+// function generateRubies() {
+//   console.log('here!')
+//   let ruby1 = new Ruby("spin-in", "ruby", "images/rubies/ruby1.png", "20px", "500px")
+//   let ruby2 = new Ruby("spin-in", "ruby", "images/rubies/ruby1.png", "600px", "10px")
+//   ruby1.newRubyOnPage(document.getElementById("troll-puzzle-container"))
+//   ruby2.newRubyOnPage(document.getElementById("troll-puzzle-container"))
+//   ruby1.throwRuby('show1')
+//   ruby2.throwRuby('show2')
+// }
 //     .box {
 //   display: block;
 //   background: lightblue;
