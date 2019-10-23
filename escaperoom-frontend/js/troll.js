@@ -1,9 +1,10 @@
 function trollPuzzleStart() {
 
-  const trollWords = document.getElementById('troll-words')
+  const trollWords = document.createElement('p')
   const trollPuzzleContainer = document.getElementById('troll-puzzle-container')
   const trollImg = document.getElementById('fremont-troll-image')
   const trollWordBox = document.getElementById('left-dialog-box')
+  trollWordBox.style.display = "block"
   trollWordBox.appendChild(trollWords)
 
   trollPuzzleContainer.style.display = "block";
