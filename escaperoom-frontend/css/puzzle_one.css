@@ -1,23 +1,55 @@
 
 #image-specific-id {
-  height: 70%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#puzzle-one-page-container {
+  display: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#puzzle-one-clues {
+  width: 25%;
+  left: 0;
+  height: 600px;
+  background: transparent;
+  border: 10px solid rgba(155,118,92,0.32);
+  border-radius: 0px;
+  position: relative;
+  background-image: url('../images/dialog_background.jpg')
+}
+
+#top-div {
+  height: 850px;
   width: 70%;
   position: relative;
+  display: none;
+  border: 10px solid black;
+  border-radius: 0px;
+}
+
+#mid-div, #lower-div {
+  display: none;
 }
 
 #page-one-specific-button {
-  top: 500px;
-  right:1000px;
-  padding: 100px 100px;
+  padding: 50px 50px;
   color: transparent;
-  background-color:transparent;
-  position:absolute;
+  background-color: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   border-color: transparent;
 }
 
 #first-clue-id {
   background-color: cadetblue;
   border: black;
-  position: center;
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
