@@ -46,20 +46,28 @@ function welcomeReturningUser(user){
 }
 
 function createNewUser(nameInput){
-  console.log(nameInput,"nameInput");
+  
   fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "Accepts" : "application/json"
+      "Content-Type": 'application/json',
+      Accepts : 'application/json'
     },
     body: JSON.stringify({
       name: nameInput
     })
-  
-  // .then(console.log),
-  //   // startGame();
   })
+  .then(res=> res.json())
+  .then(welcomeNewUser)
+}
+
+function welcomeNewUser(newUser){
+  console.log(newUser,"newUser did i get here?");
+  const loginForm = document.getElementById('login-form');
+  loginForm.remove();
+  const welcomeMsg = document.getElementById('login-msg');
+  welcomeMsg.textContent = `Welcome for the first time, ${newUser.name}!`;
+  startGame();
 }
 
 function startGame() {
