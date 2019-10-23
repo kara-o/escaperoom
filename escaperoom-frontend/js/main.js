@@ -19,6 +19,7 @@ function getUsers() {
 }
 
 function login(users) {
+  console.log(users)
   const loginForm = document.getElementById('login-form')
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -37,11 +38,12 @@ function iterateThroughUsers(nameInput, users) {
   createNewUser(nameInput);
 }
 
-function welcomePage(user){
+function welcomePage(userJson){
+  console.log(userJson)
   const loginForm = document.getElementById('login-form');
   loginForm.remove();
   const welcomeMsg = document.getElementById('login-msg');
-  welcomeMsg.textContent = `Welcome, ${user.name}!`;
+  welcomeMsg.textContent = `Welcome, ${userJson.name}!`;
   viewScores();
   startGame();
 }
@@ -51,7 +53,7 @@ function createNewUser(nameInput){
     method: "POST",
     headers: {
       "Content-Type": 'application/json',
-      Accepts : 'application/json'
+      Accept: 'application/json'
     },
     body: JSON.stringify({
       name: nameInput

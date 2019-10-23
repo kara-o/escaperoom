@@ -14,7 +14,7 @@ let intervalId = 0
 //     top: 220px;
 //     left: 40px;
 
-function displayTransitionMap(targetIdTag, clues, instructions) {
+function displayTransitionMap(targetIdTag, clues, instructions, puzzle) {
 
   let dropTarget = document.getElementById(targetIdTag);
   dropTarget.style.display = "block";
@@ -26,7 +26,8 @@ function displayTransitionMap(targetIdTag, clues, instructions) {
   mapContainer.addEventListener("dragenter", dragenter);
   mapContainer.addEventListener("drop", drop);
 
-  dropTarget.addEventListener("drop", dropOnTarget);
+  dropTarget.addEventListener("drop", (e) => {
+    dropOnTarget(e, puzzle)});
 
   displayClues(clues);
   displayInstructions(instructions);
@@ -103,7 +104,7 @@ function drop(e) {
   dropResponse.textContent = "Nope, try again!"
 }
 
-function dropOnTarget(e) {
+function dropOnTarget(e, puzzle) {
   taxi.style.left = e.clientX - diffX + "px"
   taxi.style.top = e.clientY - diffY + "px"
   taxi.style.position = "fixed"
@@ -118,7 +119,7 @@ function dropOnTarget(e) {
   setTimeout(function() {
     dropResponse.style.display = "none";
     clearTransitionMap();
-    nextPuzzle(trollPuzzleStart);
+    nextPuzzle(puzzle);
   }, 2000);
   e.stopPropagation();
 }
@@ -133,6 +134,6 @@ function clearTransitionMap() {
   // document.getElementById("left-dialog-words").style.display = 'none';
 }
 
-function nextPuzzle(puzzleFunction) {
-  puzzleFunction()
+function nextPuzzle(puzzleFunction){
+   puzzleFunction();
 }
