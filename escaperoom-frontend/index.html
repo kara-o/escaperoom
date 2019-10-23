@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/treasure-map.css">
     <link rel="stylesheet" href="css/puzzle_one.css">
+    <link rel="stylesheet" href="css/login_page.css">
 
     <title>Flatiron Seattle Escape Room</title>
   </head>
@@ -19,6 +20,16 @@
         <span id="timer"></span>
     </div>
     <!-- end clock -->
+
+    <!-- start page -->
+    <div id="start-page">
+      <h2 id="login-msg">Welcome To Escape Room</h2>
+      <form id="login-form">
+        <input type="text" name="name" placeholder="Name..">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <!-- end start page -->
 
     <!-- puzzle 1 -->
     <div id="puzzle-one-page-container">
@@ -31,17 +42,7 @@
 
     <!-- end puzzle 1 -->
 
-    <!-- start page -->
-    <div id="start-page">
-      <h2 id="login-msg">Welcome To Escape Room</h2>
-      <form id="login-form">
-        <input type="text" name="name" placeholder="Name..">
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-    <!-- end start page -->
-
-    <!-- map with side dialog boxes -->
+    <!-- main layout with side dialog boxes -->
     <div id="page-container">
 
       <div id="left-dialog-box" class="dialog-box">
@@ -62,11 +63,7 @@
       </div>
 
     </div>
-    <!-- end map with side dialog boxes -->
-
-    <!-- troll -->
-  
-   <!-- end troll -->
+    <!-- end main layout with side dialog boxes -->
 
 <!--     treasure map puzzle -->
     <div id="treasure-map-whole">
