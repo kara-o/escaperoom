@@ -34,7 +34,7 @@ function iterateThroughUsers(nameInput, users) {
       return welcomeReturningUser(user);
     }
   }
-  createNewUser();
+  createNewUser(nameInput);
 }
 
 function welcomeReturningUser(user){
@@ -45,8 +45,21 @@ function welcomeReturningUser(user){
   startGame();
 }
 
-function createNewUser(){
-  startGame();
+function createNewUser(nameInput){
+  console.log(nameInput,"nameInput");
+  fetch("http://localhost:3000/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accepts" : "application/json"
+    },
+    body: JSON.stringify({
+      name: nameInput
+    })
+  
+  // .then(console.log),
+  //   // startGame();
+  })
 }
 
 function startGame() {
