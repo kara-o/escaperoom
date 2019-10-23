@@ -1,12 +1,16 @@
-let currentUser = "Brian";
-// main();
-const loginForm = document.getElementById("login-form");
-loginForm.remove();
-const welcomeMsg = document.getElementById("login-msg");
-welcomeMsg.textContent = "";
-const startPage = document.getElementById("start-page");
-startPage.style.display = "none";
-startTimer();
+let currentUser = null;
+let currentGame = null;
+main();
+
+function startFresh() {
+  startTimer();
+  const loginForm = document.getElementById("login-form");
+  loginForm.remove();
+  const welcomeMsg = document.getElementById("login-msg");
+  welcomeMsg.textContent = "";
+  const startPage = document.getElementById("start-page");
+  startPage.style.display = "none";
+}
 
 function main() {
   getUsers();
@@ -42,6 +46,7 @@ function iterateThroughUsers(nameInput, users) {
 
 function welcomePage(userJson) {
   currentUser = userJson;
+  console.log(currentUser.id);
   const loginForm = document.getElementById("login-form");
   loginForm.remove();
   const welcomeMsg = document.getElementById("login-msg");
@@ -91,6 +96,7 @@ function startGame() {
   startGameBtn.textContent = "START GAME";
   startPage.appendChild(startGameBtn);
   startGameBtn.addEventListener("click", () => {
+    currentGame = 1;
     clearStartPage();
     loadNarrative();
     // puzzleOneStart();
