@@ -7,6 +7,7 @@ let diffY = 0
 let intervalId = 0
 
 function displayTransitionMap(targetIdTag, clues, instructions) {
+  
   let dropTarget = document.getElementById(targetIdTag)
 
   mapContainer.style.display = "block";
