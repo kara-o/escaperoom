@@ -2,15 +2,15 @@ let currentUser = null;
 let currentGame = null;
 main();
 
-function startFresh() {
-  startTimer();
-  const loginForm = document.getElementById("login-form");
-  loginForm.remove();
-  const welcomeMsg = document.getElementById("login-msg");
-  welcomeMsg.textContent = "";
-  const startPage = document.getElementById("start-page");
-  startPage.style.display = "none";
-}
+// function startFresh() {
+//   startTimer();
+//   const loginForm = document.getElementById("login-form");
+//   loginForm.remove();
+//   const welcomeMsg = document.getElementById("login-msg");
+//   welcomeMsg.textContent = "";
+//   const startPage = document.getElementById("start-page");
+//   startPage.style.display = "none";
+// }
 
 function main() {
   getUsers();
