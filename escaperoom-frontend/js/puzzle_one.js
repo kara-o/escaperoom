@@ -78,6 +78,7 @@ function firstbuttonAction(){
 
     let createInput = document.createElement('INPUT');
     createInput.setAttribute('type','text');
+    createInput.setAttribute('autocomplete', 'off')
     createInput.setAttribute('value','');
 
     let submitInput = document.createElement('input');

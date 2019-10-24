@@ -41,6 +41,7 @@ function trollChallenge(jokes, answers) {
   jokeForm.id = 'joke-form'
   const jokeAnswer = document.createElement('input')
   jokeAnswer.setAttribute("type", "text")
+  jokeAnswer.setAttribute("autocomplete", "off")
   jokeAnswer.name = 'answer'
   jokeAnswer.id = 'joke-answer'
   const jokeSubmit = document.createElement('input')
