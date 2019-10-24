@@ -10,6 +10,9 @@
   transform: translateX(450px) rotate(720deg);
   opacity: 1;
 } */
+.ruby {
+  position: absolute;
+}
 
 .show1 {
   animation-duration: 1s;

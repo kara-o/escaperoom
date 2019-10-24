@@ -59,6 +59,7 @@ function trollChallenge(jokes, answers) {
     let input = event.target.elements.answer.value
     if (input.toLowerCase() === answers[0].toLowerCase()) {
         jokeFeedback.textContent = "Good job!"
+        jokeForm.remove();
         setTimeout(() => {
           jokeFeedback.textContent = ""
         }, 2000)

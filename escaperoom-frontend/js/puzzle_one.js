@@ -28,6 +28,7 @@ function addButton(){
 function firstbuttonAction(){
   let clueBox = document.getElementById('puzzle-one-clues');
   let puzzleOneInstructions = document.createElement("p")
+  puzzleOneInstructions.id = "first-instructions"
   clueBox.appendChild(puzzleOneInstructions)
   puzzleOneInstructions.style.padding = "10px"
   puzzleOneInstructions.style.bottom = "75%"
@@ -41,7 +42,7 @@ function firstbuttonAction(){
 
   function firstDelayedClue(){
     let firstClue = document.createElement('div');
-    firstClue.setAttribute('id','first-clue-id');
+    firstClue.id = 'first-clue-id';
     firstClue.innerText = "first clue!\ndivide by two, click\n opposite of vertical\n gravity center";
     clueBox.append(firstClue);
     firstClue.style.position = "absolute"
@@ -55,12 +56,14 @@ function firstbuttonAction(){
     firstClueId.style.display = 'none';
   }
 
-  window.setTimeout(removeClue, 8000);
-
 
   let button = document.getElementById("page-one-specific-button");
 
   button.addEventListener('click', (event) =>{
+    removeClue();
+
+    document.getElementById('first-instructions').textContent = "You found it!"
+
 
     let firstChallenge = document.createElement("p")
     clueBox.appendChild(firstChallenge)
@@ -90,6 +93,8 @@ function firstbuttonAction(){
 
       let formInputAnswer = event.target.elements[0].value;
       if (formInputAnswer === "const"){
+        document.getElementById('first-instructions').textContent = "";
+        firstChallenge.style.bottom = "75%";
         firstChallenge.innerText = "Success!";
 
         window.setTimeout(() => {
@@ -101,6 +106,13 @@ function firstbuttonAction(){
           displayTransitionMap('discovery-park-drop-target', cluesDP, instructions, loadTreasurePuzzle);
         },1000);
         }
+      else {
+        document.getElementById('first-instructions').textContent = "Try again!";
+        createInput.value = "";
+        setTimeout(() => {
+          document.getElementById('first-instructions').textContent = "";
+        }, 2000)
+      }
     })
   })
 }
