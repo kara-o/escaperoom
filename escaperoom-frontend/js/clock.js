@@ -1,5 +1,4 @@
 
-
 function startTimer() {
   const timer = document.getElementById("timer");
   timer.textContent = 600
