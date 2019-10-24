@@ -64,7 +64,7 @@ function trollChallenge(jokes, answers) {
         }, 2000)
         trollWords.textContent = "Wow, you have brains and a sense of humor.  Here are your Ruby gems..."
         generateRubies('50%', '50%', 'show1');
-        generateRubies('50%', '50%', 'show2');
+        generateRubies('45%', '45%', 'show2');
         setTimeout(() => {
           //gameWon();
         }, 4000);
