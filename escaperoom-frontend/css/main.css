@@ -113,6 +113,10 @@ body {
   position: absolute;
 }
 
+#joke-form {
+  padding-top: 200px;
+}
+
 #top-scores-container {
   display: flex;
   flex-direction: row;
