@@ -160,21 +160,3 @@ function loadNarrative() {
     puzzleOneStart();
   })
 }
-
-<<<<<<< HEAD
-// function gameWon() {
-//   Ruby.removeAllRubies();
-//   const finalPage = document.createElement('div')
-//   const finalMessage = document.createElement('p')
-//   finalMessage.textContent = "You Won!"
-//   finalPage.appendChild(finalMessage)
-// }
-=======
-function gameWon() {
-  Ruby.removeAllRubies();
-  const finalPage = document.createElement('div')
-  const finalMessage = document.createElement('p')
-  finalMessage.textContent = "You Won!"
-  finalPage.appendChild(finalMessage)
-}
->>>>>>> 599aa2cffcb4a87674a0c9db3a657a635e66220b
