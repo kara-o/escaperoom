@@ -1,29 +1,39 @@
-
+let currentUser = null;
+let currentGame = null;
 main();
+
+function startFresh() {
+  startTimer();
+  const loginForm = document.getElementById("login-form");
+  loginForm.remove();
+  const welcomeMsg = document.getElementById("login-msg");
+  welcomeMsg.textContent = "";
+  const startPage = document.getElementById("start-page");
+  startPage.style.display = "none";
+}
 
 function main() {
   getUsers();
+  // loadUsers();
+  // displayUsers();
 }
 
 function getUsers() {
-  fetch('http://localhost:3000/users')
-  .then(response => response.json())
-  .then(users =>{
-    login(users)
-  })
-
+  fetch("http://localhost:3000/users")
+    .then(response => response.json())
+    .then(users => {
+      login(users);
+    });
 }
 
 function login(users) {
-  console.log(users)
-  const loginForm = document.getElementById('login-form')
-  loginForm.addEventListener('submit', function(event) {
+  const loginForm = document.getElementById("login-form");
+  loginForm.addEventListener("submit", function(event) {
     event.preventDefault();
     const nameInput = event.target.elements.name.value;
     iterateThroughUsers(nameInput, users);
-  })
+  });
 }
-
 
 function iterateThroughUsers(nameInput, users) {
   for (const user of users) {
@@ -34,29 +44,30 @@ function iterateThroughUsers(nameInput, users) {
   createNewUser(nameInput);
 }
 
-function welcomePage(userJson){
-  console.log(userJson)
-  const loginForm = document.getElementById('login-form');
+function welcomePage(userJson) {
+  currentUser = userJson;
+  console.log(currentUser.id);
+  const loginForm = document.getElementById("login-form");
   loginForm.remove();
-  const welcomeMsg = document.getElementById('login-msg');
+  const welcomeMsg = document.getElementById("login-msg");
   welcomeMsg.textContent = `Welcome, ${userJson.name}!`;
   viewScores();
   startGame();
 }
 
-function createNewUser(nameInput){
+function createNewUser(nameInput) {
   fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
-      "Content-Type": 'application/json',
-      Accept: 'application/json'
+      "Content-Type": "application/json",
+      Accept: "application/json"
     },
     body: JSON.stringify({
       name: nameInput
     })
   })
-  .then(res=> res.json())
-  .then(welcomePage)
+    .then(res => res.json())
+    .then(welcomePage);
 }
 
 function viewScores() {
@@ -69,9 +80,9 @@ function viewScores() {
 }
 
 function startGame() {
-  const startPage = document.getElementById('start-page')
-  const gameDescription = document.createElement("h3")
-  startPage.append(gameDescription)
+  const startPage = document.getElementById("start-page");
+  const gameDescription = document.createElement("h3");
+  startPage.append(gameDescription);
 
   // gameDescription.textContent = "We are so glad you are here!"
   // setTimeout(function() {
@@ -80,39 +91,46 @@ function startGame() {
   // setTimeout(function() {
   //   gameDescription.textContent = "We need to get the Ruby gems back.  Please help!"
   // }, 4000)
-  gameDescription.textContent = "Press START GAME if you are ready to begin."
-  const startGameBtn = document.createElement("button")
-  startGameBtn.textContent = "START GAME"
-  startPage.appendChild(startGameBtn)
-  startGameBtn.addEventListener('click', () => {
+  gameDescription.textContent = "Press START GAME if you are ready to begin.";
+  const startGameBtn = document.createElement("button");
+  startGameBtn.textContent = "START GAME";
+  startPage.appendChild(startGameBtn);
+  startGameBtn.addEventListener("click", () => {
+    currentGame = 1;
     clearStartPage();
     loadNarrative();
     // puzzleOneStart();
   });
 }
-  // setTimeout(function() {
-  //   gameDescription.textContent = "Press START GAME if you are ready to begin."
-  //   const startGameBtn = document.createElement("button")
-  //   startGameBtn.textContent = "START GAME"
-  //   startPage.appendChild(startGameBtn)
-  //   startGameBtn.addEventListener('click', () => {
-  //     clearStartPage();
-  //     puzzleOneStart();
-  //   })
-  // }, 2000)
-
+// setTimeout(function() {
+//   gameDescription.textContent = "Press START GAME if you are ready to begin."
+//   const startGameBtn = document.createElement("button")
+//   startGameBtn.textContent = "START GAME"
+//   startPage.appendChild(startGameBtn)
+//   startGameBtn.addEventListener('click', () => {
+//     clearStartPage();
+//     puzzleOneStart();
+//   })
+// }, 2000)
 
 function clearStartPage() {
-  const startPage = document.getElementById('start-page')
-  startPage.style.display = "none"
+  const startPage = document.getElementById("start-page");
+  startPage.remove();
 }
 
 function loadNarrative() {
-  const paperMessage = document.createElement("div")
-  paperMessage.id = 'paper-message'
-  document.body.appendChild(paperMessage)
+  const paperMessage = document.createElement("div");
+  paperMessage.id = "paper-message";
+  document.body.appendChild(paperMessage);
 
-  const narrativeSentences = ['Dear Flatiron Student,', 'We need your help.', 'Someone has stolen all of the Ruby gems!', 'The thief hid clues and puzzles all throughout campus and Seattle', 'and is only giving us 10 minutes to solve them all!', 'HURRY!']
+  narrativeSentences = [
+    "Dear Flatiron Student,",
+    "We need your help.",
+    "Someone has stolen all of the Ruby gems!",
+    "The thief hid clues and puzzles all throughout campus and Seattle",
+    "and is only giving us 10 minutes to solve them all!",
+    "HURRY!"
+  ];
 
   // const sentence1 = document.createElement("p")
   // sentence1.textContent = narrativeSentences[0]
@@ -120,19 +138,20 @@ function loadNarrative() {
   // paperMessage.appendChild(sentence1)
 
   for (let i = 0; i < narrativeSentences.length; i++) {
-    let padding = 10
-    let sentence = document.createElement("p")
-    sentence.textContent = narrativeSentences[i]
-    sentence.style.padding = `${padding + i + 2}px 10px 10px 10px`
-    paperMessage.appendChild(sentence)
+    let padding = 10;
+    let sentence = document.createElement("p");
+    sentence.textContent = narrativeSentences[i];
+    sentence.style.padding = `${padding + i + 2}px 10px 10px 10px`;
+    paperMessage.appendChild(sentence);
   }
 
-  const startTimerBtn = document.createElement('button')
-  startTimerBtn.textContent = "Start Timer"
-  startTimerBtn.padding = "10px"
-  paperMessage.appendChild(startTimerBtn)
+  const startTimerBtn = document.createElement("button");
+  startTimerBtn.textContent = "Start Timer";
+  startTimerBtn.id = "start-timer-btn";
+  startTimerBtn.padding = "10px";
+  paperMessage.appendChild(startTimerBtn);
 
-  startTimerBtn.addEventListener('click', () => {
+  startTimerBtn.addEventListener("click", () => {
     paperMessage.remove();
     puzzleOneStart();
   })
