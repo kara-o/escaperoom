@@ -66,7 +66,7 @@ function trollChallenge(jokes, answers) {
         generateRubies('50%', '50%', 'show1');
         generateRubies('50%', '50%', 'show2');
         setTimeout(() => {
-          gameWon();
+          //gameWon();
         }, 4000);
       }
       else {

@@ -12,9 +12,43 @@ function treasurePuzzleOff() {
   piecesDiv.style.display = "none";
   piecesDivDescendants.forEach(x => x.style.display = "none");
   mapGridDescendants.forEach(x => x.style.display = "none");
+  document.body.style.backgroundImage = "url('images/forest.jpg')";
 }
 
+// function lookForTreasureMap() {
+//   document.body.style.backgroundImage = "url('images/dp_image.jpeg')"
+//   document.body.style.backgroundSize = "cover"
+//
+//   const treasureDialog = document.createElement("div")
+//   document.body.append(treasureDialog)
+//   const treasureInstructions = document.createElement("p")
+//   treasureInstructions.id = "treasure-instructions"
+//   treasureInstructions.textContent = "There is a treasure map somewhere! Find it!"
+//   treasureDialog.appendChild(treasureInstructions)
+//   treasureDialog.style.backgroundImage = "url('images/dialog_background.jpg')"
+//   treasureDialog.id = "treasure-dialog-div"
+//
+//   setTimeout(() => {
+//     treasureInstructons.textContent = "Hint...it may be "
+//   })
+//
+//   // loadTreasurePuzzle();
+//   // treasureInstructons.textContent = ""
+// }
+
 function loadTreasurePuzzle() {
+  document.body.style.backgroundImage = "url('images/dp_image.jpeg')"
+  document.body.style.backgroundSize = "cover"
+
+  const treasureDialog = document.createElement("div")
+  document.body.append(treasureDialog)
+  const treasureInstructions = document.createElement("p")
+  treasureInstructions.id = "treasure-instructions"
+  treasureInstructions.textContent = "Uh oh, our map has been ripped into small pieces...can you fix it?"
+  treasureDialog.appendChild(treasureInstructions)
+  treasureDialog.style.backgroundImage = "url('images/dialog_background.jpg')"
+  treasureDialog.id = "treasure-dialog-div"
+
   const mapGrid = document.getElementById("treasure-map-whole");
   const piecesDiv = document.getElementById("treasure-pieces-div");
   mapGrid.style.display = "grid";
@@ -91,8 +125,12 @@ function checkPuzzleSuccess() {
    //SUCCESS MESSAGE!!!
     const clues2 = ['Your next challenge is located...', 'at a local landmark built in 1989...', 'inspired by a Norwegian fairy tale called...', 'Three Billy Goats Gruff']
     const instructions = ['Drag the taxi to your next location on the map.']
-    treasurePuzzleOff();
-    displayTransitionMap("troll-drop-target", clues2, instructions, trollPuzzleStart);
+    document.getElementById("treasure-instructions").textContent = "Great Job!"
+    setTimeout(() => {
+      treasurePuzzleOff();
+      document.getElementById("treasure-dialog-div").remove()
+      displayTransitionMap("troll-drop-target", clues2, instructions, trollPuzzleStart);
+    }, 2000)
   }
 }
 
