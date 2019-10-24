@@ -59,8 +59,6 @@ body {
 
 #taxi {
   position: absolute;
-  left: 10px;
-  top: 10px;
 }
   /* animation-name: spin;
   animation-duration: 1s;
@@ -77,8 +75,8 @@ body {
   position: absolute;
   width: 80px;
   height: 50px;
-  top: 300px;
-  left: 345px;
+  top: 35%;
+  left: 41%;
   background-color: transparent;
 }
 
@@ -96,7 +94,7 @@ body {
   display: none;
   position: relative;
   height: 700px;
-  width: 75%;
+  width: 70%;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
