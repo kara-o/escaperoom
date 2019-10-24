@@ -129,9 +129,21 @@ body {
   border: 10px solid rgba(155,118,92,0.32);
   border-radius: 0px;
   width: 50%;
-  height: 50%;
+  height: 300px;
 }
 
-#top-scores-name, #top-scores {
+#top-scores-name {
   position: absolute;
+  left: 40px;
+}
+
+#top-scores {
+  position: absolute;
+  right: 40px;
+}
+
+#final-score {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
 }

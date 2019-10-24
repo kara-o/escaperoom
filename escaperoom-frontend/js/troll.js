@@ -58,12 +58,12 @@ function trollChallenge(jokes, answers) {
     e.preventDefault();
     let input = event.target.elements.answer.value
     if (input.toLowerCase() === answers[0].toLowerCase()) {
-        jokeFeedback.textContent = "Good job!"
+        jokeFeedback.textContent = "TROLL: YOU BEAT ME!"
         jokeForm.remove();
         setTimeout(() => {
           jokeFeedback.textContent = ""
         }, 2000)
-        trollWords.textContent = "Wow, you have brains and a sense of humor.  Here are your Ruby gems..."
+        trollWords.textContent = "TROLL: Wow, you have brains and a sense of humor.  Here are your Ruby gems..."
         let random = Math.floor((Math.random() * 100) + 1);
         let i = 0
         while (i < random) {
@@ -76,7 +76,7 @@ function trollChallenge(jokes, answers) {
         }, 4000);
       }
       else {
-        jokeFeedback.textContent = "Nope, keep trying!"
+        jokeFeedback.textContent = "TROLL: Nope, keep trying!"
         setTimeout(() => {
           jokeFeedback.textContent = ""
         }, 2000)

@@ -49,8 +49,7 @@ function firstbuttonAction(){
     firstClue.style.bottom = "50%"
   }
 
-  // let showingFirstClue = window.setTimeout(firstDelayedClue(), 2000)
-  firstDelayedClue();
+  let showingFirstClue = window.setTimeout(firstDelayedClue,2000);
 
   function removeClue(){
     let firstClueId = document.getElementById('first-clue-id');
@@ -62,7 +61,6 @@ function firstbuttonAction(){
 
   button.addEventListener('click', (event) =>{
     removeClue();
-
 
     document.getElementById('first-instructions').textContent = "You found it!"
 
@@ -110,7 +108,7 @@ function firstbuttonAction(){
         }
       else {
         document.getElementById('first-instructions').textContent = "Try again!";
-        createInput.value = "";
+        createInput.value = ""
         setTimeout(() => {
           document.getElementById('first-instructions').textContent = "";
         }, 2000)
