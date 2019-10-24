@@ -121,6 +121,7 @@ function clearStartPage() {
 function loadNarrative() {
   const paperMessage = document.createElement("div");
   paperMessage.id = "paper-message";
+  paperMessage.style.position = 'relative';
   document.body.appendChild(paperMessage);
 
   narrativeSentences = [
@@ -141,14 +142,17 @@ function loadNarrative() {
     let padding = 10;
     let sentence = document.createElement("p");
     sentence.textContent = narrativeSentences[i];
-    sentence.style.padding = `${padding + i + 2}px 10px 10px 10px`;
+    sentence.style.padding = `${padding + i}px 10px 10px 10px`;
     paperMessage.appendChild(sentence);
   }
 
   const startTimerBtn = document.createElement("button");
-  startTimerBtn.textContent = "Start Timer";
+  startTimerBtn.textContent = "BEGIN";
   startTimerBtn.id = "start-timer-btn";
-  startTimerBtn.padding = "10px";
+  startTimerBtn.style.padding = "10px";
+  startTimerBtn.style.position = "absolute";
+  startTimerBtn.style.left = "40%"
+  startTimerBtn.style.bottom = "8px"
   paperMessage.appendChild(startTimerBtn);
 
   startTimerBtn.addEventListener("click", () => {
