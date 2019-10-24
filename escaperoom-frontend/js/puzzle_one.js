@@ -95,7 +95,7 @@ function firstbuttonAction(){
         window.setTimeout(() => {
 
           const cluesDP = ['Your next challenge location...', '...is a popular place in Seattle', '...along the water', '...with a lighthouse']
-          const instructions = ['Drag the taxi to your next location on the map.', "Need more clues? Click on 'More Clues', but be aware that this will cost you time!"]
+          const instructions = ['Drag the taxi to your next location on the map.']
 
           hideAllOnPage();
           displayTransitionMap('discovery-park-drop-target', cluesDP, instructions, loadTreasurePuzzle);
