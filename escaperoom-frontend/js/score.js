@@ -5,6 +5,7 @@ class Score {
   }
 
   appendScores() {
+    document.getElementById('top-scores-container').style.display = "flex";
     const topScoresNameOl = document.getElementById("top-scores-name");
     const topScoresOl = document.getElementById("top-scores");
     topScoresOl.style.listStyle = "none";

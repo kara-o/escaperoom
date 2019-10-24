@@ -49,7 +49,8 @@ function firstbuttonAction(){
     firstClue.style.bottom = "50%"
   }
 
-  let showingFirstClue = window.setTimeout(firstDelayedClue,2000);
+  // let showingFirstClue = window.setTimeout(firstDelayedClue(), 2000)
+  firstDelayedClue();
 
   function removeClue(){
     let firstClueId = document.getElementById('first-clue-id');
@@ -61,6 +62,7 @@ function firstbuttonAction(){
 
   button.addEventListener('click', (event) =>{
     removeClue();
+
 
     document.getElementById('first-instructions').textContent = "You found it!"
 

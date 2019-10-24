@@ -118,8 +118,20 @@ body {
 }
 
 #top-scores-container {
-  display: flex;
+  display: none;
+  position: relative;
   flex-direction: row;
+  justify-content: space-evenly;
   margin-left: auto;
   margin-right: auto;
+  background-image: url('../images/dialog_background.jpg');
+  text-align: center;
+  border: 10px solid rgba(155,118,92,0.32);
+  border-radius: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+#top-scores-name, #top-scores {
+  position: absolute;
 }
