@@ -15,10 +15,11 @@ let intervalId = 0
 //     left: 40px;
 
 function displayTransitionMap(targetIdTag, clues, instructions, puzzle) {
-
+  taxi.style.position = "absolute"
+  taxi.style.left = "10px";
+  taxi.style.top = "10px"
   let dropTarget = document.getElementById(targetIdTag);
   dropTarget.style.display = "block";
-
   mapContainer.style.display = "block";
   taxi.addEventListener("dragstart", dragstart);
 
@@ -28,6 +29,8 @@ function displayTransitionMap(targetIdTag, clues, instructions, puzzle) {
 
   dropTarget.addEventListener("drop", (e) => {
     dropOnTarget(e, puzzle)});
+
+  dropResponse.style.display = "block"
 
   displayClues(clues);
   displayInstructions(instructions);
@@ -46,7 +49,6 @@ function displayClues(clues) {
   clueWords.textContent = clues[0];
   let i=1;
   intervalId = setInterval(function() {
-    console.log('hello')
     clueWords.textContent = clues[i % clues.length];
     i++;
   }, 2000);
@@ -117,6 +119,7 @@ function dropOnTarget(e, puzzle) {
     dropResponse.textContent = `Off we go!`
   }, 1000)
   setTimeout(function() {
+    dropResponse.textContent = "";
     dropResponse.style.display = "none";
     clearTransitionMap();
     nextPuzzle(puzzle);
@@ -127,11 +130,11 @@ function dropOnTarget(e, puzzle) {
 function clearTransitionMap() {
   clearInterval(intervalId)
   mapContainer.style.display = "none";
+
+  document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
+
   document.getElementById("right-dialog-box").style.display = "none";
   document.getElementById("left-dialog-box").style.display = "none";
-
-  // document.querySelectorAll("#instructionListItem").forEach(x => x.remove())
-  // document.getElementById("left-dialog-words").style.display = 'none';
 }
 
 function nextPuzzle(puzzleFunction){
