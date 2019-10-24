@@ -112,3 +112,10 @@ body {
 #troll-words {
   position: absolute;
 }
+
+#top-scores-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}

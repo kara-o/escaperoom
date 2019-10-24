@@ -20,7 +20,7 @@ function decreaseTimer() {
 }
 
 function stopTimer() {
-  const timer = document.getElementById("timer");
+  document.getElementById("timer").style.display = "none";
   console.log('TIMER STOPPED, GAME WON!!! Last successful puzzle completion will call this timer')
 }
 
