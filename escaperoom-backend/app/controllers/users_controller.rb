@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
 
- def create 
-  user = User.create(user_params)
-  # byebug
-  render json: user
- end 
-
   def index 
     render json: User.all
   end 
+
+  def create 
+    user = User.create(user_params)
+    render json: user
+   end 
 
 private 
 
