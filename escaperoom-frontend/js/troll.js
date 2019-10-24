@@ -65,7 +65,7 @@ function trollChallenge(jokes, answers) {
           jokeFeedback.textContent = ""
         }, 2000)
         trollWords.textContent = "TROLL: Wow, you have brains and a sense of humor.  Here are your Ruby gems..."
-        let random = Math.floor((Math.random() * 100) + 1);
+        let random = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
         let i = 0
         while (i < random) {
           generateRubies();
