@@ -61,11 +61,11 @@ function createNewUser(nameInput){
 
 function viewScores() {
   const scoresContainer = document.createElement('div')
-  const scoresHeader = document.createElement('h3')
+  // const scoresHeader = document.createElement('h3')
   const scoresList = document.createElement('ul')
-  scoresHeader.textContent = "Your Past Scores: "
+  // scoresHeader.textContent = "Your Past Scores: "
   document.getElementById('start-page').appendChild(scoresContainer)
-  scoresContainer.append(scoresHeader, scoresList)
+  scoresContainer.append(scoresList)
 }
 
 function startGame() {
