@@ -63,8 +63,12 @@ function trollChallenge(jokes, answers) {
           jokeFeedback.textContent = ""
         }, 2000)
         trollWords.textContent = "Wow, you have brains and a sense of humor.  Here are your Ruby gems..."
-        generateRubies('50%', '50%', 'show1');
-        generateRubies('45%', '45%', 'show2');
+        let random = Math.floor((Math.random() * 100) + 1);
+        let i = 0
+        while (i < random) {
+          generateRubies();
+          i++;
+        }
         setTimeout(() => {
         clearTrollPuzzle();
         renderEndGame();
@@ -79,15 +83,27 @@ function trollChallenge(jokes, answers) {
     })
   }
 
-  function generateRubies(left, top, className) {
-    const newRuby = document.createElement('img');
+  function generateRubies() {
+    let random = () => {
+      return Math.floor((Math.random() * 1000) + 1);
+    }
+    let newRuby = document.createElement('img')
+    let pixel = random();
+    let pixel2 = random();
     newRuby.src = "images/rubies/ruby1.png"
     newRuby.style.position = "absolute"
-    newRuby.style.left = left
-    newRuby.style.top = top
-    newRuby.className = className
+    newRuby.className = "ruby"
+    newRuby.style.left = `${pixel}px`
+    newRuby.style.top = `${pixel2}px`
     trollPuzzleContainer.appendChild(newRuby)
   }
+    // const newRuby = document.createElement('img');
+    // newRuby.src = "images/rubies/ruby1.png"
+    // newRuby.style.position = "absolute"
+    // newRuby.style.left = left
+    // newRuby.style.top = top
+    // newRuby.className = className
+    // trollPuzzleContainer.appendChild(newRuby)
 
 
   //   //next joke!!!
