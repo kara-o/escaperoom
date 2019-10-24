@@ -29,7 +29,7 @@ function trollPuzzleStart() {
   setTimeout(function () {
     trollWords.textContent = "";
     trollChallenge(jokes, answers)
-  }, 4000);
+  }, 5000);
 
 }
 

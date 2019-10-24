@@ -157,10 +157,10 @@ function loadNarrative() {
   })
 }
 
-function gameWon() {
-  Ruby.removeAllRubies();
-  const finalPage = document.createElement('div')
-  const finalMessage = document.createElement('p')
-  finalMessage.textContent = "You Won!"
-  finalPage.appendChild(finalMessage)
-}
+// function gameWon() {
+//   Ruby.removeAllRubies();
+//   const finalPage = document.createElement('div')
+//   const finalMessage = document.createElement('p')
+//   finalMessage.textContent = "You Won!"
+//   finalPage.appendChild(finalMessage)
+// }
