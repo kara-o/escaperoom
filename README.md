@@ -6,11 +6,7 @@ Flatiron School Module 3 Group Project
 Seattle Escape Room! 
 
 
-
-Abstract 
-
 In the context of Flatiron School Module Three, we implemented front and backend functionality to experience a novel escape room! Escape the Seattle Escape Room! Beat your time and try to get the number one spot on the leaderboard! Our Escape Room runs off of Ruby on Rails for the backend, and Javascript for the front end. 
-
 
 
 How to run 
@@ -18,8 +14,6 @@ How to run
 After forking and cloning the repository, open up ‘escaperoom-backend’ in your terminal and run ‘bundle install’. After running bundle install, run ‘rails s’ to open up the server.
 
 Open up another terminal window and open ‘escaperoom-frontend’. From here, open index.html to start the escape room! 
-
-
 
 
 
@@ -31,7 +25,7 @@ All CRUD interactions between the frontend and backend occur via fetch() without
 
 At least one API endpoint rendersout a nested resource.Custom CSS styling. 
 
-No purely bare-bones HTML.
+Not purely bare-bones HTML.
 
 JavaScript properly waits for DOM to load.
 
