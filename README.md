@@ -20,7 +20,7 @@ All CRUD interactions between the frontend and backend occur via fetch() without
 
 At least one API endpoint rendersout a nested resource.Custom CSS styling.
 
-No purely bare-bones HTML.
+Not purely bare-bones HTML.
 
 JavaScript properly waits for DOM to load.
 
