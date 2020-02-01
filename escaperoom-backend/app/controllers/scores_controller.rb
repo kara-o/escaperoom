@@ -1,7 +1,8 @@
 class ScoresController < ApplicationController
 
   def index 
-    render json: Score.all
+    scores = Score.order(:time)
+    render json: scores
   end 
   
   def create 
