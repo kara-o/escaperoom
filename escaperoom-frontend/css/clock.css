@@ -1,4 +1,5 @@
-/* #clock-div {
-  background-color: darkslategray;
-  grid-area: clock;
-} */
+#timer {
+  font-family: 'Kelly Slab', cursive;
+  font-size: 60px;
+  position: absolute;
+}

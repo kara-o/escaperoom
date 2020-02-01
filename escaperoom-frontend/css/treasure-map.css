@@ -2,7 +2,7 @@
   text-align: center;
   height: 100px;
   width: 30%;
-  border: 10px solid rgba(155,118,92,0.32);
+  border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
   margin-left: auto;
   margin-right: auto;
@@ -31,10 +31,10 @@
   border-radius: 0px;
 }
 
-
 #treasure-pieces-div {
   display: none;
   width: 100%;
+  justify-content: space-evenly;
 }
 
 .map-container {
@@ -100,6 +100,8 @@
 }
 
 #treasure-map-whole {
+  margin-left: auto;
+  margin-right: auto;
   background-color: brown;
   height: 300px;
   width: 300px;
@@ -107,9 +109,9 @@
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   grid-template-areas:
-    "m1 m2 m3"
-    "m4 m5 m6"
-    "m7 m8 m9";
+    'm1 m2 m3'
+    'm4 m5 m6'
+    'm7 m8 m9';
 }
 
 #map-container-1 {

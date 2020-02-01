@@ -3,67 +3,95 @@ function renderEndGame() {
 }
 
 function displayFinalScore() {
-  const finalScore = document.getElementById("final-score");
-  const currentTime = document.getElementById("timer");
+  const finalScore = document.getElementById('final-score');
+  const timer = document.getElementById('timer');
   stopTimer();
-  const runTime = 600 - parseInt(currentTime.textContent, 10);
+  let time = timer.textContent;
+  let digits = time.split(':');
+  let minutes = parseInt(digits[0], 10);
+  let seconds = parseInt(digits[1], 10);
+  let seconds_string;
+
+  minutes = 4 - minutes;
+  if (seconds === 0) {
+    seconds_string = '0' + seconds.toString();
+  } else {
+    seconds = 60 - seconds;
+    seconds_string = seconds.toString();
+    if (seconds < 10) {
+      seconds_string = '0' + seconds.toString();
+    }
+  }
+
+  const runTime = minutes.toString() + ':' + seconds_string;
   finalScore.textContent = `Your score is ${runTime}`;
-  postScore(currentUser, runTime);
+  runSeconds = minutes * 60 + seconds;
+  postScore(currentUser, runSeconds);
 }
 
-function postScore(currentUser, runTime) {
-  fetch("http://localhost:3000/scores/", {
-    method: "POST",
+function postScore(currentUser, runSeconds) {
+  fetch('http://localhost:3000/scores/', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
     },
     body: JSON.stringify({
-      time: runTime,
-      user_id: parseInt(currentUser.id),
+      time: runSeconds,
+      user_id: currentUser.id,
       game_id: 1
     })
   }).then(() => {
-    fetchUsers();
+    fetchScores();
   });
 }
 
-function fetchUsers() {
-  fetch("http://localhost:3000/users")
-    .then(response => response.json())
-    .then(users => {
-      renderUsers(users);
+function fetchScores() {
+  fetch('http://localhost:3000/scores')
+    .then(res => res.json())
+    .then(scores => {
+      renderScores(scores);
     });
 }
 
-function renderUsers(users) {
-  const endGameDiv = document.getElementById("end-game");
-  allScores = getAllScores(users);
-  top10 = topTenScores(allScores);
-  console.log(top10);
-  top10.forEach(run => {
-    run.appendScores();
-  });
+function convertScore(score_seconds) {
+  let seconds = score_seconds % 60;
+  let minutes = (score_seconds - seconds) / 60;
+  if (seconds < 10) {
+    seconds = '0' + seconds.toString();
+  } else {
+    seconds = seconds.toString();
+  }
+  return minutes.toString() + ':' + seconds;
 }
 
-function getAllScores(users) {
-  scoresHolder = [];
-  users.forEach(userJson => {
-    let user = new User(userJson);
-    let scores = user.name.scores;
-    scores.forEach(score => {
-      let createScore = new Score(user.name.name, score.time);
-      scoresHolder.push(createScore);
-    });
-  });
-  return scoresHolder;
-}
+function renderScores(scores) {
+  document.getElementById('top-scores-container').style.display = 'flex';
+  const topScoresNamesList = document.getElementById('top-scores-names');
+  const topScoresList = document.getElementById('top-scores');
+  topScoresList.style.listStyle = 'none';
+  topScoresNamesList.style.listStyle = 'none';
+  const nameTitle = document.createElement('li');
+  const scoreTitle = document.createElement('li');
+  nameTitle.classList.add('list-header');
+  scoreTitle.classList.add('list-header');
+  nameTitle.textContent = 'Name';
+  scoreTitle.textContent = 'Score';
+  topScoresNamesList.append(nameTitle);
+  topScoresList.append(scoreTitle);
 
-function topTenScores(allScores) {
-  sortedScores = allScores.sort((a, b) => {
-    return a.time - b.time;
+  topTenScores = scores.slice(0, 10);
+  topTenScores.forEach(score => {
+    const convertedScore = convertScore(score.time);
+    const liName = document.createElement('li');
+    const liScore = document.createElement('li');
+
+    liName.textContent = score.user;
+    liScore.textContent = convertedScore;
+
+    topScoresNamesList.append(liName);
+    topScoresList.append(liScore);
   });
-  return sortedScores.slice(0, 10);
 }
 
 // function appendScores(run) {
