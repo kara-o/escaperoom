@@ -32,7 +32,7 @@ The project makes use of JavaScript classes to model part of the application.
 
 ### Screenshots
 
-![Screenshot 1](../escaperoom-frontend/images/README_1.png)
-![Screenshot 2](../escaperoom-frontend/images/README_2.png)
-![Screenshot 3](../escaperoom-frontend/images/README_3.png)
-![Screenshot 4](../escaperoom-frontend/images/README_4.png)
+![Screenshot 1](./escaperoom-frontend/images/README_1.png)
+![Screenshot 2](./escaperoom-frontend/images/README_2.png)
+![Screenshot 3](./escaperoom-frontend/images/README_3.png)
+![Screenshot 4](./escaperoom-frontend/images/README_4.png)
