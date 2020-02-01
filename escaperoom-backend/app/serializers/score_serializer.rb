@@ -1,3 +1,7 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :time, :user, :created_at
+
+  def user
+    User.find(self.object.user_id).name
+  end
 end
