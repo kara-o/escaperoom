@@ -16,7 +16,8 @@ function loadTreasurePuzzle() {
   document.body.style.backgroundSize = 'cover';
 
   const treasureDialog = document.createElement('div');
-  document.body.append(treasureDialog);
+  treasureDialog.id = 'treasure-dialog';
+  document.getElementById('page-container').append(treasureDialog);
   const treasureInstructions = document.createElement('p');
   treasureInstructions.id = 'treasure-instructions';
   treasureInstructions.textContent =
@@ -95,10 +96,7 @@ function checkPuzzleSuccess() {
       containerChildIds.push(childId);
     }
   }
-  console.log(typeof containerChildIds);
-  console.log(typeof puzzleAnswer);
   if (arraysEqual(containerChildIds, puzzleAnswer)) {
-    //SUCCESS MESSAGE!!!
     const clues2 = [
       'Your next challenge is located...',
       'at a local landmark built in 1989...',

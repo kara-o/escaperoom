@@ -12,16 +12,6 @@
   padding: 15px 10px 10px 10px;
 }
 
-#treasure-map-container {
-  display: none;
-  position: relative;
-  height: 700px;
-  width: 70%;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 #dp-image {
   position: absolute;
   display: block;
