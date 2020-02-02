@@ -1,4 +1,4 @@
-dev = true;
+const dev = false;
 
 let currentUser = null;
 let currentGame = null;
@@ -154,6 +154,24 @@ function loadNarrative() {
 
   startTimerBtn.addEventListener('click', () => {
     paperMessage.remove();
-    dev ? trollPuzzleStart() : puzzleOneStart();
+    dev ? trollPuzzleStart() : startFirstChallenge();
   });
+}
+
+function startFirstChallenge() {
+  const cluesDP = [
+    'Your first challenge location...',
+    '...is a popular place in Seattle',
+    '...along the water',
+    '...with a lighthouse'
+  ];
+  const instructions = ['Drag the taxi to your next location on the map.'];
+  document.getElementById('page-container').style.display = 'flex';
+  setUpTimer();
+  displayTransitionMap(
+    'discovery-park-drop-target',
+    cluesDP,
+    instructions,
+    loadTreasurePuzzle
+  );
 }

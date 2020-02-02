@@ -1,4 +1,5 @@
 function renderEndGame() {
+  document.getElementById('page-container').style.display = 'none';
   displayFinalScore();
 }
 

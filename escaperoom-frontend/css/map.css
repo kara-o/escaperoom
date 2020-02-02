@@ -1,13 +1,10 @@
 #transition-map-container {
   position: relative;
   display: none;
-  height: 750px;
-  width: 68%;
-  margin-left: auto;
-  margin-right: auto;
-  border: 10px solid rgba(155,118,92,0.32);
+  height: 80%;
+  width: 60%;
+  border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
-
 }
 
 #seattle-map-image {
@@ -22,7 +19,7 @@
 #taxi {
   position: absolute;
 }
-  /* animation-name: spin;
+/* animation-name: spin;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
