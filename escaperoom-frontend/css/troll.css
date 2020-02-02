@@ -1,11 +1,8 @@
 #troll-puzzle-container {
   display: none;
   position: relative;
-  height: 700px;
-  width: 70%;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  height: 70vh;
+  width: 70vw;
 }
 
 #fremont-troll-image {

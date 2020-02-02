@@ -1,9 +1,12 @@
-function startTimer() {
+const startTimer = setInterval(() => {
+  decreaseTimer();
+}, 1000);
+
+function setUpTimer() {
   const timer = document.getElementById('timer');
+  timer.style.display = 'block';
   timer.textContent = '5:00';
-  setInterval(() => {
-    decreaseTimer();
-  }, 1000);
+  startTimer;
 }
 
 function decreaseTimer() {
@@ -32,10 +35,8 @@ function decreaseTimer() {
 }
 
 function stopTimer() {
+  clearInterval(startTimer);
   document.getElementById('timer').style.display = 'none';
-  console.log(
-    'TIMER STOPPED, GAME WON!!! Last successful puzzle completion will call this timer'
-  );
 }
 
 //define loseGame

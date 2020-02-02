@@ -5,6 +5,7 @@
 body {
   overflow: hidden;
   background-image: url('../images/forest.jpg');
+  background-size: cover;
 }
 
 #page-container {
@@ -21,6 +22,7 @@ body {
   border-radius: 0px;
   top: 80px;
   background-image: url('../images/dialog_background.jpg');
+  background-size: cover;
   text-align: center;
 }
 
@@ -37,17 +39,18 @@ body {
 }
 
 #top-scores-container {
-  position: relative;
   display: none;
   margin-left: auto;
   margin-right: auto;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-evenly;
   background-image: url('../images/dialog_background.jpg');
+  background-size: cover;
   border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
-  width: 50%;
-  height: 300px;
+  width: 50vw;
+  height: 50vh;
+  text-align: center;
 }
 
 #top-scores-names {
@@ -59,15 +62,18 @@ body {
 }
 
 #final-score {
-  position: absolute;
   margin-left: auto;
   margin-right: auto;
+  flex: 1 100%;
+}
+
+#top-ten-title {
+  flex: 1 100%;
 }
 
 ol {
   text-align: center;
-  margin-left: 0;
-  margin-top: 15px;
+  padding: none;
 }
 
 .list-header {
