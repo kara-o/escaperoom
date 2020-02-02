@@ -5,7 +5,6 @@ function renderEndGame() {
 function displayFinalScore() {
   const finalScore = document.getElementById('final-score');
   const timer = document.getElementById('timer');
-  stopTimer();
   let time = timer.textContent;
   let digits = time.split(':');
   let minutes = parseInt(digits[0], 10);

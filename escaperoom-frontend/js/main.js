@@ -1,3 +1,5 @@
+dev = true;
+
 let currentUser = null;
 let currentGame = null;
 main();
@@ -19,7 +21,7 @@ function main() {
 }
 
 function getUsers() {
-  fetch("http://localhost:3000/users")
+  fetch('http://localhost:3000/users')
     .then(response => response.json())
     .then(users => {
       login(users);
@@ -27,8 +29,8 @@ function getUsers() {
 }
 
 function login(users) {
-  const loginForm = document.getElementById("login-form");
-  loginForm.addEventListener("submit", function(event) {
+  const loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const nameInput = event.target.elements.name.value;
     iterateThroughUsers(nameInput, users);
@@ -47,20 +49,20 @@ function iterateThroughUsers(nameInput, users) {
 function welcomePage(userJson) {
   currentUser = userJson;
   console.log(currentUser.id);
-  const loginForm = document.getElementById("login-form");
+  const loginForm = document.getElementById('login-form');
   loginForm.remove();
-  const welcomeMsg = document.getElementById("login-msg");
+  const welcomeMsg = document.getElementById('login-msg');
   welcomeMsg.textContent = `Welcome, ${userJson.name}!`;
   viewScores();
   startGame();
 }
 
 function createNewUser(nameInput) {
-  fetch("http://localhost:3000/users", {
-    method: "POST",
+  fetch('http://localhost:3000/users', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
     },
     body: JSON.stringify({
       name: nameInput
@@ -71,17 +73,17 @@ function createNewUser(nameInput) {
 }
 
 function viewScores() {
-  const scoresContainer = document.createElement('div')
+  const scoresContainer = document.createElement('div');
   // const scoresHeader = document.createElement('h3')
-  const scoresList = document.createElement('ul')
+  const scoresList = document.createElement('ul');
   // scoresHeader.textContent = "Your Past Scores: "
-  document.getElementById('start-page').appendChild(scoresContainer)
-  scoresContainer.append(scoresList)
+  document.getElementById('start-page').appendChild(scoresContainer);
+  scoresContainer.append(scoresList);
 }
 
 function startGame() {
-  const startPage = document.getElementById("start-page");
-  const gameDescription = document.createElement("h3");
+  const startPage = document.getElementById('start-page');
+  const gameDescription = document.createElement('h3');
   startPage.append(gameDescription);
 
   // gameDescription.textContent = "We are so glad you are here!"
@@ -91,11 +93,11 @@ function startGame() {
   // setTimeout(function() {
   //   gameDescription.textContent = "We need to get the Ruby gems back.  Please help!"
   // }, 4000)
-  gameDescription.textContent = "Press START GAME if you are ready to begin.";
-  const startGameBtn = document.createElement("button");
-  startGameBtn.textContent = "START GAME";
+  gameDescription.textContent = 'Press START GAME if you are ready to begin.';
+  const startGameBtn = document.createElement('button');
+  startGameBtn.textContent = 'START GAME';
   startPage.appendChild(startGameBtn);
-  startGameBtn.addEventListener("click", () => {
+  startGameBtn.addEventListener('click', () => {
     currentGame = 1;
     clearStartPage();
     loadNarrative();
@@ -114,23 +116,22 @@ function startGame() {
 // }, 2000)
 
 function clearStartPage() {
-  const startPage = document.getElementById("start-page");
+  const startPage = document.getElementById('start-page');
   startPage.remove();
 }
 
 function loadNarrative() {
-  const paperMessage = document.createElement("div");
-  paperMessage.id = "paper-message";
+  const paperMessage = document.createElement('div');
+  paperMessage.id = 'paper-message';
   paperMessage.style.position = 'relative';
   document.body.appendChild(paperMessage);
 
   narrativeSentences = [
-    "Dear Flatiron Student,",
-    "We need your help.",
-    "Someone has stolen all of the Ruby gems!",
-    "The thief hid clues and puzzles all throughout campus and Seattle",
-    "and is only giving us 10 minutes to solve them all!",
-    "HURRY!"
+    'Dear Flatiron Student,',
+    'We need your help.',
+    'Someone has stolen all of the Ruby gems!',
+    'The thief hid clues and puzzles throughout Seattle and is only giving us 10 minutes to solve them all!',
+    'PLEASE HURRY!'
   ];
 
   // const sentence1 = document.createElement("p")
@@ -139,24 +140,20 @@ function loadNarrative() {
   // paperMessage.appendChild(sentence1)
 
   for (let i = 0; i < narrativeSentences.length; i++) {
-    let padding = 10;
-    let sentence = document.createElement("p");
+    // let padding = 10;
+    let sentence = document.createElement('p');
     sentence.textContent = narrativeSentences[i];
-    sentence.style.padding = `${padding + i}px 10px 10px 10px`;
+    // sentence.style.padding = `${padding + i}px 10px 10px 10px`;
     paperMessage.appendChild(sentence);
   }
 
-  const startTimerBtn = document.createElement("button");
-  startTimerBtn.textContent = "BEGIN";
-  startTimerBtn.id = "start-timer-btn";
-  startTimerBtn.style.padding = "10px";
-  startTimerBtn.style.position = "absolute";
-  startTimerBtn.style.left = "40%"
-  startTimerBtn.style.bottom = "8px"
+  const startTimerBtn = document.createElement('button');
+  startTimerBtn.textContent = 'BEGIN';
+  startTimerBtn.id = 'start-timer-btn';
   paperMessage.appendChild(startTimerBtn);
 
-  startTimerBtn.addEventListener("click", () => {
+  startTimerBtn.addEventListener('click', () => {
     paperMessage.remove();
-    puzzleOneStart();
-  })
+    dev ? trollPuzzleStart() : puzzleOneStart();
+  });
 }
