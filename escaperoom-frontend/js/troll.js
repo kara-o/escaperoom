@@ -67,10 +67,10 @@ function trollChallenge(jokes, answers) {
       }, 2000);
       trollWords.textContent =
         'TROLL: Wow, you have brains and a sense of humor.  Here are your Ruby gems...';
-      let random = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+      let random = Math.floor(Math.random() * 100) + 100;
       let i = 0;
       while (i < random) {
-        generateRubies();
+        generateRuby();
         i++;
       }
       setTimeout(() => {
@@ -86,17 +86,22 @@ function trollChallenge(jokes, answers) {
   });
 }
 
-function generateRubies() {
+function generateRuby() {
   let random = () => {
-    return Math.floor(Math.random() * 1000 + 1);
+    return Math.floor(Math.random() * 2000 + 1);
   };
+  let coinToss = Math.floor(Math.random * 2);
   let newRuby = document.createElement('img');
   let pixel = random();
   let pixel2 = random();
   newRuby.src = 'images/rubies/ruby1.png';
   newRuby.style.position = 'absolute';
   newRuby.className = 'ruby';
-  newRuby.style.left = `${pixel}px`;
+  if (coinToss == 0) {
+    newRuby.style.left = `${pixel}px`;
+  } else {
+    newRuby.style.right = `${pixel}px`;
+  }
   newRuby.style.top = `${pixel2}px`;
   trollPuzzleContainer.appendChild(newRuby);
 }

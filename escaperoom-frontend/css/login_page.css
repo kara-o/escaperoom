@@ -1,8 +1,5 @@
 #start-page {
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-  height: 25vh;
+  display: inline-block;
   background-color: transparent;
   border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
@@ -13,34 +10,32 @@
   background-size: cover;
 }
 
-#paper-message {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-image: url('../images/dialog_background.jpg');
-  background-size: cover;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
+.login-text {
   width: 30vw;
-  height: 40vh;
-  border: 10px solid rgba(155, 118, 92, 0.32);
-  border-radius: 0px;
+  padding: 20px;
 }
-
-#paper-message > p {
-  font-family: 'Reenie Beanie', cursive;
-  font-size: 48px;
-  margin: 0;
-}
-
-/* #paper-message > p:nth-child(6) {
-  margin-bottom: 20px;
-} */
 
 #start-timer-btn {
   align-self: center;
   padding: 10px;
   font-size: 18px;
+}
+
+.login-title {
+  font-family: 'Special Elite', cursive;
+  font-size: 64px;
+}
+
+.narrative {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  text-align: left;
+}
+
+.narrative > p {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 48px;
+  margin: 5px 0px 5px 0px;
 }

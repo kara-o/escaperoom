@@ -19,13 +19,18 @@
       href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/treasure-map.css" />
     <link rel="stylesheet" href="css/puzzle_one.css" />
     <link rel="stylesheet" href="css/login_page.css" />
     <link rel="stylesheet" href="css/map.css" />
     <link rel="stylesheet" href="css/troll.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" />
 
-    <title>Flatiron Seattle Escape Room</title>
+    <title>Seattle Escape Room</title>
   </head>
 
   <body>
@@ -37,16 +42,14 @@
 
     <!-- start page -->
     <div id="start-page">
-      <h2 id="login-msg">Welcome To Escape Room</h2>
-      <form id="login-form">
-        <input
-          type="text"
-          autocomplete="off"
-          name="name"
-          placeholder="Name.."
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <div class="login-text">
+        <h2 class="login-title animated bounceInDown">Seattle Escape Room</h2>
+        <h3 id="login-msg">Welcome! Please enter your name...</h3>
+        <form id="login-form">
+          <input type="text" autocomplete="off" name="name" />
+          <input type="submit" value="Let's Go!" />
+        </form>
+      </div>
     </div>
     <!-- end start page -->
 
