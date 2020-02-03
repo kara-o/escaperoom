@@ -79,7 +79,6 @@ function dragstart(e) {
 
 function dragover(e) {
   e.preventDefault();
-  console.log('dragging!!!');
 }
 
 function dragenter(e) {
@@ -96,7 +95,6 @@ function drop(e) {
   taxi.style.top = e.clientY - diffY + 'px';
   taxi.style.position = 'fixed';
 
-  console.log('NOT TARGET');
   dropResponse.textContent = 'Nope, try again!';
 }
 
@@ -104,8 +102,6 @@ function dropOnTarget(e, puzzle) {
   taxi.style.left = e.clientX - diffX + 'px';
   taxi.style.top = e.clientY - diffY + 'px';
   taxi.style.position = 'fixed';
-
-  console.log('TARGET!');
   document.getElementById('clues-header').remove();
   document.getElementById('left-dialog-words').remove();
   dropResponse.textContent = 'SUCCESS!';
