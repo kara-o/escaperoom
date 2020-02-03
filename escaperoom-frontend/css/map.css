@@ -1,8 +1,8 @@
 #transition-map-container {
   position: relative;
   display: none;
-  height: 80%;
-  width: 60%;
+  height: 800px;
+  width: 1000px;
   border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
 }
@@ -42,9 +42,9 @@
 #discovery-park-drop-target {
   display: none;
   position: absolute;
-  width: 120px;
-  height: 100px;
-  top: 220px;
-  left: 40px;
+  width: 165px;
+  height: 140px;
+  top: 170px;
+  left: 15px;
   background-color: transparent;
 }

@@ -38,9 +38,3 @@ function stopTimer() {
   clearInterval(startTimer);
   document.getElementById('timer').style.display = 'none';
 }
-
-//define loseGame
-// funciton loseGame() {
-//set display to "none" for current level or transition screen
-//display end game screen and score(s)
-// }
