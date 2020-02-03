@@ -1,13 +1,8 @@
 function treasurePuzzleOff() {
   const mapGrid = document.getElementById('treasure-map-whole');
-  const piecesDiv = document.getElementById('treasure-pieces-div');
-
-  const mapGridDescendants = mapGrid.querySelectorAll('*');
-  const piecesDivDescendants = piecesDiv.querySelectorAll('*');
-  mapGrid.style.display = 'none';
-  piecesDiv.style.display = 'none';
-  piecesDivDescendants.forEach(x => (x.style.display = 'none'));
-  mapGridDescendants.forEach(x => (x.style.display = 'none'));
+  const treasureDialog = document.getElementById('treasure-dialog-div');
+  mapGrid.remove();
+  treasureDialog.remove();
   document.body.style.backgroundImage = "url('images/forest.jpg')";
 }
 
@@ -16,7 +11,6 @@ function loadTreasurePuzzle() {
   document.body.style.backgroundSize = 'cover';
 
   const treasureDialog = document.createElement('div');
-  treasureDialog.id = 'treasure-dialog';
   document.getElementById('page-container').append(treasureDialog);
   const treasureInstructions = document.createElement('p');
   treasureInstructions.id = 'treasure-instructions';
@@ -27,33 +21,35 @@ function loadTreasurePuzzle() {
   treasureDialog.id = 'treasure-dialog-div';
 
   const mapGrid = document.getElementById('treasure-map-whole');
-  const piecesDiv = document.getElementById('treasure-pieces-div');
   mapGrid.style.display = 'grid';
-  piecesDiv.style.display = 'flex';
 
   const treasureMapPieces = document.querySelectorAll('.map-piece');
   const treasureMapContainers = document.querySelectorAll('.map-container');
-  //probably need to push the grid containers to treasureMapContainers
   let draggedItem = null;
+  let container = null;
 
   for (let i = 0; i < treasureMapPieces.length; i++) {
     const mapPiece = treasureMapPieces[i];
+    mapPiece.style.display = 'block';
+
+    let random = () => {
+      return Math.floor(Math.random() * 1000 + 1);
+    };
+    let pixel = random();
+    let pixel2 = random();
+
+    mapPiece.style.left = `${pixel}px`;
+    mapPiece.style.top = `${pixel2}px`;
 
     mapPiece.addEventListener('dragstart', function(e) {
       draggedItem = this;
-      setTimeout(() => {
-        this.style.display = 'none';
-      }, 0);
-    });
-    mapPiece.addEventListener('dragend', function(e) {
-      setTimeout(() => {
-        this.style.display = 'block';
-        draggedItem = null;
-      }, 0);
     });
   }
   for (let j = 0; j < treasureMapContainers.length; j++) {
     const mapContainer = treasureMapContainers[j];
+
+    let coordinates = mapContainer.getBoundingClientRect();
+    console.log(coordinates);
 
     mapContainer.addEventListener('dragenter', e => {
       e.preventDefault();
@@ -61,16 +57,27 @@ function loadTreasurePuzzle() {
     mapContainer.addEventListener('dragover', e => {
       e.preventDefault();
     });
-    mapContainer.addEventListener('dragleave', function() {});
-    mapContainer.addEventListener('drop', function(e) {
-      //if !this.child, then append
-      this.append(draggedItem);
-      console.log(checkPuzzleSuccess());
+    mapContainer.addEventListener('drop', () => {
+      container = mapContainer;
+      dropOnMap(coordinates, draggedItem, container);
     });
   }
 }
 
+const dropOnMap = (coordinates, draggedItem, container) => {
+  console.log(coordinates, draggedItem, container);
+  const mapPiece = draggedItem;
+  mapPiece.style.left = `${coordinates.left}px`;
+  mapPiece.style.top = `${coordinates.top}px`;
+  if (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  container.appendChild(mapPiece);
+  checkPuzzleSuccess();
+};
+
 function checkPuzzleSuccess() {
+  console.log('checking puzzle!');
   const mapGridContainers = document.querySelectorAll('.map-grid-container');
   const puzzleAnswer = [
     'map-piece-9',
@@ -83,19 +90,14 @@ function checkPuzzleSuccess() {
     'map-piece-2',
     'map-piece-1'
   ];
-  //check if grid container has child
-
-  // console.log(mapGridContainers[0].firstChild.id);
   let containerChildIds = [];
   for (let i = 0; i < mapGridContainers.length; i++) {
-    // debugger;
     if (mapGridContainers[i].firstChild) {
       const childId = mapGridContainers[i].firstChild.id;
-      //   console.log(mapGridContainers[i].firstChild.id);
-
       containerChildIds.push(childId);
     }
   }
+  console.log(containerChildIds);
   if (arraysEqual(containerChildIds, puzzleAnswer)) {
     const clues2 = [
       'Your next challenge is located...',
@@ -107,7 +109,6 @@ function checkPuzzleSuccess() {
     document.getElementById('treasure-instructions').textContent = 'Great Job!';
     setTimeout(() => {
       treasurePuzzleOff();
-      document.getElementById('treasure-dialog-div').remove();
       displayTransitionMap(
         'troll-drop-target',
         clues2,

@@ -39,3 +39,8 @@
   font-size: 48px;
   margin: 5px 0px 5px 0px;
 }
+
+.login-form,
+.login-msg {
+  display: none;
+}

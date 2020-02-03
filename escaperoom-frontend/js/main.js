@@ -5,6 +5,12 @@ let currentGame = null;
 main();
 
 function main() {
+  const msg = document.getElementsByClassName('login-msg')[0];
+  const form = document.getElementsByClassName('login-form')[0];
+  setInterval(() => {
+    msg.style.display = 'block';
+    form.style.display = 'block';
+  }, 1000);
   getUsers();
 }
 
@@ -17,7 +23,7 @@ function getUsers() {
 }
 
 function login(users) {
-  const loginForm = document.getElementById('login-form');
+  const loginForm = document.getElementsByClassName('login-form')[0];
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const nameInput = event.target.elements.name.value;
@@ -36,9 +42,9 @@ function iterateThroughUsers(nameInput, users) {
 
 function welcomePage(userJson) {
   currentUser = userJson;
-  const loginForm = document.getElementById('login-form');
+  const loginForm = document.getElementsByClassName('login-form')[0];
   loginForm.remove();
-  const welcomeMsg = document.getElementById('login-msg');
+  const welcomeMsg = document.getElementsByClassName('login-msg')[0];
   welcomeMsg.textContent = `Welcome, ${userJson.name}!`;
   // viewScores();
   startGame();
@@ -83,12 +89,16 @@ function startGame() {
 }
 
 function clearLoginText() {
+  const startPage = document.getElementById('start-page');
   const loginText = document.getElementsByClassName('login-text')[0];
   loginText.remove();
+  startPage.style.display = 'none';
 }
 
 function loadNarrative() {
   const startPage = document.getElementById('start-page');
+  startPage.style.display = 'inline-block';
+  startPage.classList.add('animated', 'rotateIn');
 
   narrativeSentences = [
     'Dear Flatiron Student,',
