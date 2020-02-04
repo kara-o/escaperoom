@@ -17,7 +17,8 @@ function decreaseTimer() {
   let seconds = parseInt(digits[1], 10);
 
   if (time == '0:00') {
-    loseGame();
+    // loseGame();
+    console.log('game lost!');
   } else if (seconds <= 10 && seconds > 0) {
     new_seconds = seconds - 1;
     seconds = '0' + new_seconds.toString();

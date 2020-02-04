@@ -17,8 +17,10 @@
 
 #troll-words {
   position: absolute;
+  margin: 0;
 }
 
 #joke-form {
-  padding-top: 200px;
+  position: absolute;
+  bottom: 20px;
 }
