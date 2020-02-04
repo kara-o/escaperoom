@@ -1,4 +1,5 @@
 #treasure-dialog-div {
+  display: none;
   text-align: center;
   height: 100px;
   width: 30%;
@@ -21,31 +22,23 @@
   border-radius: 0px;
 }
 
-/* #treasure-pieces-div {
-  display: none;
-  width: 100%;
-  justify-content: space-evenly;
-} */
-
 .map-container {
   background-image: url('../images/dialog_background.jpg');
-}
-
-.map-inline-container {
-  position: inline-block;
-  height: 110px;
-  width: 110px;
-  margin: 5px;
-}
-
-.map-grid-container {
   height: 100px;
   width: 100px;
+  position: absolute;
+}
+
+#pieces-div {
+  position: relative;
+  display: none;
+  width: 100vw;
+  height: 50vh;
 }
 
 .map-piece {
-  display: none;
   position: absolute;
+  display: inline-block;
   height: 100px;
   width: 100px;
   cursor: pointer;
@@ -88,6 +81,7 @@
 }
 
 #treasure-map-whole {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   background-color: brown;

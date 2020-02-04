@@ -5,6 +5,7 @@
   width: 1000px;
   border: 10px solid rgba(155, 118, 92, 0.32);
   border-radius: 0px;
+  margin: 5px;
 }
 
 #seattle-map-image {
