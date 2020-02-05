@@ -116,7 +116,6 @@ function checkPuzzleSuccess() {
       containerChildIds.push(childId);
     }
   }
-  console.log(containerChildIds);
   if (arraysEqual(containerChildIds, puzzleAnswer)) {
     const clues2 = [
       'Your next challenge is located...',
@@ -125,7 +124,7 @@ function checkPuzzleSuccess() {
       'Three Billy Goats Gruff'
     ];
     const instructions = ['Drag the taxi to your next location on the map.'];
-    document.getElementById('treasure-instructions').textContent = 'Great Job!';
+    document.getElementById('treasure-instructions').textContent = 'Nice job!';
     setTimeout(() => {
       treasurePuzzleOff();
       displayTransitionMap(
@@ -141,7 +140,7 @@ function checkPuzzleSuccess() {
 function arraysEqual(a, b) {
   if (a.length != b.length) return false;
 
-  for (var i = 0; i < a.length; ++i) {
+  for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) return false;
   }
   return true;

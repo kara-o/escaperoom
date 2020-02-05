@@ -12,10 +12,10 @@ function trollPuzzleStart() {
   const trollWords = document.createElement('p');
   trollWords.id = 'troll-words';
   const trollImg = document.getElementById('fremont-troll-image');
-  trollWordBox.style.display = 'block';
+  trollWordBox.style.display = 'flex';
+
   trollWordBox.appendChild(trollWords);
   trollImg.style.display = 'block';
-  trollWords.style.bottom = '50%';
 
   setTimeout(function() {
     trollWords.textContent = 'TROLL: You found me!';
@@ -37,7 +37,6 @@ function trollPuzzleStart() {
 
 function trollChallenge(jokes, answers) {
   const trollWords = document.getElementById('troll-words');
-
   const jokeForm = document.createElement('form');
   jokeForm.id = 'joke-form';
   const jokeAnswer = document.createElement('input');
@@ -47,6 +46,7 @@ function trollChallenge(jokes, answers) {
   jokeAnswer.id = 'joke-answer';
   const jokeSubmit = document.createElement('input');
   jokeSubmit.setAttribute('type', 'submit');
+  jokeSubmit.setAttribute('value', 'Guess!');
   trollWordBox.appendChild(jokeForm);
   jokeForm.appendChild(jokeAnswer);
   jokeForm.appendChild(jokeSubmit);
@@ -60,13 +60,10 @@ function trollChallenge(jokes, answers) {
     let input = event.target.elements.answer.value;
     if (input.toLowerCase() === answers[0].toLowerCase()) {
       stopTimer();
-      jokeFeedback.textContent = 'TROLL: YOU BEAT ME!';
+      jokeFeedback.remove();
       jokeForm.remove();
-      setTimeout(() => {
-        jokeFeedback.textContent = '';
-      }, 2000);
       trollWords.textContent =
-        'TROLL: Wow, you have brains and a sense of humor.  Here are your Ruby gems...';
+        'TROLL: YOU BEAT ME! Wow, you have brains and a sense of humor.  Here are your Ruby gems...';
       let random = Math.floor(Math.random() * 100) + 100;
       let i = 0;
       while (i < random) {
@@ -88,7 +85,7 @@ function trollChallenge(jokes, answers) {
 
 function generateRuby() {
   let random = () => {
-    return Math.floor(Math.random() * 2000 + 1);
+    return Math.floor(Math.random() * 100 + 1);
   };
   let coinToss = Math.floor(Math.random * 2);
   let newRuby = document.createElement('img');
@@ -98,11 +95,11 @@ function generateRuby() {
   newRuby.style.position = 'absolute';
   newRuby.className = 'ruby';
   if (coinToss == 0) {
-    newRuby.style.left = `${pixel}px`;
+    newRuby.style.left = `${pixel}vw`;
   } else {
-    newRuby.style.right = `${pixel}px`;
+    newRuby.style.right = `${pixel}vw`;
   }
-  newRuby.style.top = `${pixel2}px`;
+  newRuby.style.top = `${pixel2}vh`;
   trollPuzzleContainer.appendChild(newRuby);
 }
 // const newRuby = document.createElement('img');
