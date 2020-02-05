@@ -6,7 +6,11 @@ class UsersController < ApplicationController
 
   def create 
     user = User.create(user_params)
-    render json: user
+    if user.valid?
+      render json: { user: UserSerializer.new(user) }, status: :created
+    else 
+      render json: { errors: { error_obj: user.errors.messages, full_messages: user.errors.full_messages} }, status: :not_acceptable
+    end 
    end 
 
 private 
