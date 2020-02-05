@@ -1,32 +1,39 @@
 function renderEndGame() {
   document.getElementById('page-container').style.display = 'none';
   displayFinalScore();
+  displayReturnToLogin();
 }
 
 function displayFinalScore() {
   const finalScore = document.getElementById('final-score');
   const timer = document.getElementById('timer');
   let time = timer.textContent;
-  let digits = time.split(':');
-  let minutes = parseInt(digits[0], 10);
-  let seconds = parseInt(digits[1], 10);
-  let seconds_string;
 
-  minutes = 4 - minutes;
-  if (seconds === 0) {
-    seconds_string = '0' + seconds.toString();
+  if (time === '0:0') {
+    finalScore.textContent = `You could not beat the troll within the 5:00 time limit.  Better luck next time!`;
+    postScore(currentUser, 0);
   } else {
-    seconds = 60 - seconds;
-    seconds_string = seconds.toString();
-    if (seconds < 10) {
-      seconds_string = '0' + seconds.toString();
-    }
-  }
+    let digits = time.split(':');
+    let minutes = parseInt(digits[0], 10);
+    let seconds = parseInt(digits[1], 10);
+    let seconds_string;
 
-  const runTime = minutes.toString() + ':' + seconds_string;
-  finalScore.textContent = `Your score is ${runTime}`;
-  runSeconds = minutes * 60 + seconds;
-  postScore(currentUser, runSeconds);
+    minutes = 4 - minutes;
+    if (seconds === 0) {
+      seconds_string = '0' + seconds.toString();
+    } else {
+      seconds = 60 - seconds;
+      seconds_string = seconds.toString();
+      if (seconds < 10) {
+        seconds_string = '0' + seconds.toString();
+      }
+    }
+
+    const runTime = minutes.toString() + ':' + seconds_string;
+    finalScore.textContent = `Your score is ${runTime}`;
+    runSeconds = minutes * 60 + seconds;
+    postScore(currentUser, runSeconds);
+  }
 }
 
 function postScore(currentUser, runSeconds) {
@@ -79,33 +86,23 @@ function renderScores(scores) {
   scoreTitle.textContent = 'Score';
   topScoresNamesList.append(nameTitle);
   topScoresList.append(scoreTitle);
-
   topTenScores = scores.slice(0, 10);
   topTenScores.forEach(score => {
-    const convertedScore = convertScore(score.time);
     const liName = document.createElement('li');
     const liScore = document.createElement('li');
-
     liName.textContent = score.user;
-    liScore.textContent = convertedScore;
-
+    if (score.time === 0) {
+      liScore.textContent = 'LOST';
+    } else {
+      const convertedScore = convertScore(score.time);
+      liScore.textContent = convertedScore;
+    }
     topScoresNamesList.append(liName);
     topScoresList.append(liScore);
   });
 }
 
-// function appendScores(run) {
-// const topScoresNameOl = document.getElementById("top-scores-name");
-// const topScoresOl = document.getElementById("top-scores");
-// topScoresOl.style.listStyle = "none";
-// const liName = document.createElement("li");
-// const liScore = document.createElement("li");
-
-// console.log(run);
-// liName.textContent = `Name: ${run.name}`;
-// liScore.textContent = `Score: ${run.score}`;
-
-// topScoresNameOl.append(liName);
-// topScoresOl.append(liScore);
-// }
-// parseInt(currentUser.id)
+function displayReturnToLogin() {
+  const returnLink = document.getElementById('return-link');
+  returnLink.addEventListener('click', () => location.reload());
+}

@@ -21,6 +21,9 @@ body {
 }
 
 .dialog-box {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   width: 15%;
   height: 200px;
   border: 10px solid rgba(155, 118, 92, 0.32);
@@ -90,4 +93,8 @@ ol {
 #paper-message > p {
   font-family: 'Reenie Beanie', cursive;
   font-size: 24px;
+}
+
+#return-link {
+  flex: 1 100%;
 }

@@ -33,10 +33,13 @@ function displayTransitionMap(targetIdTag, clues, instructions, puzzle) {
 
 function displayClues(clues) {
   const cluesBox = document.getElementById('left-dialog-box');
-  cluesBox.style.display = 'block';
+  cluesBox.style.display = 'flex';
   const cluesHeader = document.createElement('h2');
   cluesHeader.id = 'clues-header';
   cluesHeader.textContent = 'Clues';
+  cluesHeader.style.position = 'absolute';
+  cluesHeader.style.top = '0px';
+  cluesHeader.style.marginTop = '5px';
   const clueWords = document.createElement('p');
   clueWords.id = 'left-dialog-words';
   cluesBox.append(cluesHeader, clueWords, dropResponse);
@@ -57,13 +60,12 @@ function displayClues(clues) {
 
 function displayInstructions(instructions) {
   const instructionsBox = document.getElementById('right-dialog-box');
-  instructionsBox.style.display = 'block';
-  const instructionsList = document.createElement('ul');
-  instructionsBox.appendChild(instructionsList);
+  instructionsBox.style.display = 'flex';
+  const instructionsList = document.getElementById('instructions-list');
 
   for (const instruction of instructions) {
     const instructionLi = document.createElement('li');
-    instructionLi.style.padding = '10px 10px 10px 0px';
+    instructionLi.style.padding = '10px';
     instructionLi.id = 'instructionListItem';
     instructionLi.textContent = instruction;
     instructionsList.appendChild(instructionLi);

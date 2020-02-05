@@ -13,12 +13,22 @@
 .login-text {
   width: 30vw;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-#start-timer-btn {
+#start-timer-btn,
+#start-game-btn {
   align-self: center;
   padding: 10px;
   font-size: 18px;
+}
+
+.login-input,
+.signup-input {
+  font-size: 24px;
 }
 
 .login-title {
@@ -40,7 +50,16 @@
   margin: 5px 0px 5px 0px;
 }
 
-.login-form,
-.login-msg {
+.login,
+.new-user {
   display: none;
+}
+
+.signup {
+  display: none;
+}
+
+#scores-list {
+  max-height: 150px;
+  overflow: scroll;
 }

@@ -40,15 +40,39 @@
         <h2 class="login-title animated bounceInDown delay">
           Seattle Escape Room
         </h2>
-        <h3 class="login-msg animated fadeIn">
-          Welcome! Please enter your name...
-        </h3>
-        <form class="login-form animated fadeIn">
-          <input type="text" autocomplete="off" name="name" />
-          <input type="submit" value="Let's Go!" />
-        </form>
+        <div class="login">
+          <h3 class="login-msg animated fadeIn">
+            Welcome! Please enter your name...
+          </h3>
+          <form class="login-form animated fadeIn">
+            <input
+              class="login-input"
+              type="text"
+              autocomplete="off"
+              name="name"
+            />
+            <input class="login-input" type="submit" value="Let's Go!" />
+          </form>
+        </div>
+        <div class="signup">
+          <h3 class="signup-msg animated fadeIn">
+            Create a new login name...
+          </h3>
+          <form class="signup-form animated fadeIn">
+            <input
+              class="signup-input"
+              type="text"
+              autocomplete="off"
+              name="name"
+            />
+            <input class="login-input" type="submit" value="Let's Go!" />
+          </form>
+        </div>
+        <ul class="errors"></ul>
+        <a class="new-user animated fadeIn" href="#0">New User? Click Here</a>
       </div>
     </div>
+
     <!-- end start page -->
 
     <!-- main layout with side dialog boxes -->
@@ -76,7 +100,9 @@
         <div id="discovery-park-drop-target"></div>
       </div>
 
-      <div id="right-dialog-box" class="dialog-box"></div>
+      <div id="right-dialog-box" class="dialog-box">
+        <ul id="instructions-list"></ul>
+      </div>
 
       <div id="troll-puzzle-container">
         <img
@@ -156,9 +182,10 @@
         <h3 id="top-ten-title">Top Ten Scores</h3>
         <ol id="top-scores-names"></ol>
         <ol id="top-scores"></ol>
+        <a id="return-link" href="#0">Return to Login</a>
       </div>
     </div>
-
+    <script src="node_modules/moment/moment.js"></script>
     <script src="js/troll.js"></script>
     <script src="js/treasure_puzzle.js"></script>
     <script src="js/map.js"></script>
