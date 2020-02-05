@@ -2,6 +2,9 @@ class ScoresController < ApplicationController
 
   def index 
     scores = Score.order(:time)
+    numeral_scores = scores.filter {|score| score.time != 0}
+    lost_scores = scores.filter {|score| score.time == 0}
+    scores = numeral_scores + lost_scores
     render json: scores
   end 
   
