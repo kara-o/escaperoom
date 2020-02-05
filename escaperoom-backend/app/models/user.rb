@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :scores
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 
   def games_played
     self.scores.each_with_index do |score, index|

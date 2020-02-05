@@ -1,3 +1,3 @@
-class UserSerializer < ActiveModel::Serializer #defines what should come back, might not want to send everything
+class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :scores
 end
