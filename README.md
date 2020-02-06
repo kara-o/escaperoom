@@ -8,7 +8,7 @@ In the context of Flatiron School Module Three, we implemented front and backend
 
 As per our Module 3 curriculum and guidelines, only vanilla JS was used for the frontend.
 
-Two NPM Libraries were used - Moment.JS and Animate.css
+Two NPM Libraries were used - Moment.js and Animate.css
 
 ### How to Run
 
