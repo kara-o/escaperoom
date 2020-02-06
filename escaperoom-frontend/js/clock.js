@@ -3,7 +3,7 @@ let startTimer;
 function setUpTimer() {
   const timer = document.getElementById('timer');
   timer.style.display = 'block';
-  timer.textContent = '0:10';
+  timer.textContent = '5:00';
   startTimer = setInterval(() => {
     decreaseTimer();
   }, 1000);

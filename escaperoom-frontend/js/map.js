@@ -33,13 +33,14 @@ function displayTransitionMap(targetIdTag, clues, instructions, puzzle) {
 
 function displayClues(clues) {
   const cluesBox = document.getElementById('left-dialog-box');
+  dropResponse.style.display = 'none';
   cluesBox.style.display = 'flex';
   const cluesHeader = document.createElement('h2');
   cluesHeader.id = 'clues-header';
   cluesHeader.textContent = 'Clues';
   cluesHeader.style.position = 'absolute';
   cluesHeader.style.top = '0px';
-  cluesHeader.style.marginTop = '5px';
+  cluesHeader.style.marginTop = '10px';
   const clueWords = document.createElement('p');
   clueWords.id = 'left-dialog-words';
   cluesBox.append(cluesHeader, clueWords, dropResponse);
@@ -106,6 +107,7 @@ function dropOnTarget(e, puzzle) {
   taxi.style.position = 'fixed';
   document.getElementById('clues-header').remove();
   document.getElementById('left-dialog-words').remove();
+  dropResponse.style.display = 'block';
   dropResponse.textContent = 'SUCCESS!';
   setTimeout(function() {
     dropResponse.textContent = `Off we go!`;

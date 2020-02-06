@@ -182,7 +182,7 @@ function loadNarrative() {
     'Dear Flatiron Student,',
     'We need your help!',
     'Someone has stolen all of the Ruby gems!',
-    'The thief hid clues and puzzles throughout Seattle and is only giving us 10 minutes to solve them all!',
+    'The thief hid clues and puzzles throughout Seattle and is only giving us 5 minutes to solve them all!',
     'PLEASE HURRY!'
   ];
 
