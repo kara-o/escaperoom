@@ -28,11 +28,10 @@ Good separation of concerns between structure, styling and interactivity between
 
 The project handles events appropriately and uses preventDefault() to prevent unnecessary page refreshes.
 
-The project makes use of JavaScript classes to model part of the application.
-
 ### Screenshots
 
-![Screenshot 1](./escaperoom-frontend/images/README_1.png)
-![Screenshot 2](./escaperoom-frontend/images/README_2.png)
-![Screenshot 3](./escaperoom-frontend/images/README_3.png)
-![Screenshot 4](./escaperoom-frontend/images/README_4.png)
+![Screenshot 1](./escaperoom-frontend/images/readme/screenshot_1.png)
+![Screenshot 2](./escaperoom-frontend/images/readme/screenshot_2.png)
+![Screenshot 3](./escaperoom-frontend/images/readme/screenshot_3.png)
+![Screenshot 4](./escaperoom-frontend/images/readme/screenshot_4.png)
+![Screenshot 5](./escaperoom-frontend/images/readme/screenshot_5.png)
