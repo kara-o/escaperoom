@@ -36,10 +36,14 @@ The project handles events appropriately and uses preventDefault() to prevent un
 
 <p align="center">
 <img src='./escaperoom-frontend/images/readme/screenshot1.png'>
+<img src='./escaperoom-frontend/images/readme/screenshot2.png'>
+<img src='./escaperoom-frontend/images/readme/screenshot3.png'>
+<img src='./escaperoom-frontend/images/readme/screenshot4.png'>
+<img src='./escaperoom-frontend/images/readme/screenshot5.png'>
 </p>
 
-![Screenshot 1](./escaperoom-frontend/images/readme/screenshot1.png)
+<!-- ![Screenshot 1](./escaperoom-frontend/images/readme/screenshot1.png)
 ![Screenshot 2](./escaperoom-frontend/images/readme/screenshot2.png)
 ![Screenshot 3](./escaperoom-frontend/images/readme/screenshot3.png)
 ![Screenshot 4](./escaperoom-frontend/images/readme/screenshot4.png)
-![Screenshot 5](./escaperoom-frontend/images/readme/screenshot5.png)
+![Screenshot 5](./escaperoom-frontend/images/readme/screenshot5.png) -->
