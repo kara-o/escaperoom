@@ -6,11 +6,15 @@
 
 In the context of Flatiron School Module Three, we implemented front and backend functionality to experience a novel escape room! Escape the Seattle Escape Room! Beat your time and try to get the number one spot on the leaderboard! Our Escape Room runs off of Ruby on Rails for the backend, and Javascript for the front end.
 
+As per our Module 3 curriculum and guidelines, only vanilla JS was used for the frontend.
+
+Two NPM Libraries were used - Moment.js and Animate.css
+
 ### How to Run
 
 After forking and cloning the repository, open up ‘escaperoom-backend’ in your terminal and run ‘bundle install’. After running bundle install, run ‘rails s’ to open up the server.
 
-Open up another terminal window and open ‘escaperoom-frontend’. From here, open index.html to start the game!
+Open up another terminal window and open ‘escaperoom-frontend’. Run 'npm install'. From here, open index.html to start the game!
 
 ### Project Requirements
 
