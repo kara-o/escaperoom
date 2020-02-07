@@ -34,8 +34,12 @@ The project handles events appropriately and uses preventDefault() to prevent un
 
 ### Screenshots
 
+<p align="center">
+
 ![Screenshot 1](./escaperoom-frontend/images/readme/screenshot1.png)
 ![Screenshot 2](./escaperoom-frontend/images/readme/screenshot2.png)
 ![Screenshot 3](./escaperoom-frontend/images/readme/screenshot3.png)
 ![Screenshot 4](./escaperoom-frontend/images/readme/screenshot4.png)
 ![Screenshot 5](./escaperoom-frontend/images/readme/screenshot5.png)
+
+</p>
