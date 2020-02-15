@@ -1,49 +1,35 @@
-# Seattle Escape Room!
+# Seattle Escape Room
 
 ## Flatiron School Module 3 Group Project
 
 ### Abstract
 
-In the context of Flatiron School Module Three, we implemented front and backend functionality to experience a novel escape room! Escape the Seattle Escape Room! Beat your time and try to get the number one spot on the leaderboard! Our Escape Room runs off of Ruby on Rails for the backend, and Javascript for the front end.
+Using what we learned in our Module Three curriculum at Flatiron, we created a single page web app based on the popular Escape Room. Solve our Seattle-themed puzzles and beat the game!
 
-As per our Module 3 curriculum and guidelines, only vanilla JS was used for the frontend.
-
-Two NPM Libraries were used - Moment.js and Animate.css
+The game was built using vanilla JS frontend and Ruby on Rails API backend. Two additional libraries were used - [Moment.js](https://momentjs.com/) and [Animate.css](https://daneden.github.io/animate.css/).
 
 ### How to Run
 
-After forking and cloning the repository, open up ‘escaperoom-backend’ in your terminal and run ‘bundle install’. After running bundle install, run ‘rails s’ to open up the server.
+In your terminal navigate to the directory where you want to save the game files, enter and run each step:
 
-Open up another terminal window and open ‘escaperoom-frontend’. Run 'npm install'. From here, open index.html to start the game!
-
-### Project Requirements
-
-Project is built with a HTML/CSS/JS frontend and a Rails API backend with at least three resources modeled in the API.
-
-All CRUD interactions between the frontend and backend occur via fetch() without a page refresh.
-
-At least one API endpoint rendersout a nested resource.Custom CSS styling.
-
-Not purely bare-bones HTML.
-
-JavaScript properly waits for DOM to load.
-
-Good separation of concerns between structure, styling and interactivity between HTML/CSS and JavaScript.
-
-The project handles events appropriately and uses preventDefault() to prevent unnecessary page refreshes.
+1. `git clone git@github.com:kara-o/escaperoom.git`
+1. `cd escaperoom/escaperoom-backend/`
+1. `bundle install`
+1. `rails db:create && rails db:migrate && rails db:seed`
+1. `rails s`
+1. `open escaperoom/escaperoom-frontend/index.html`
 
 ### Screenshots
 
 <p align="center">
 <img src='./escaperoom-frontend/images/readme/screenshot1.png'>
+<em>Login</em>
 <img src='./escaperoom-frontend/images/readme/screenshot2.png'>
+<em>Game narrative</em>
 <img src='./escaperoom-frontend/images/readme/screenshot3.png'>
+<em>A recurring puzzle, use the clues to find your next puzzle location - drage the taxi there!</em>
 <img src='./escaperoom-frontend/images/readme/screenshot4.png'>
+<em>One of the puzzles, put the map back together!</em>
 <img src='./escaperoom-frontend/images/readme/screenshot5.png'>
+<em>End of game</em>
 </p>
-
-<!-- ![Screenshot 1](./escaperoom-frontend/images/readme/screenshot1.png)
-![Screenshot 2](./escaperoom-frontend/images/readme/screenshot2.png)
-![Screenshot 3](./escaperoom-frontend/images/readme/screenshot3.png)
-![Screenshot 4](./escaperoom-frontend/images/readme/screenshot4.png)
-![Screenshot 5](./escaperoom-frontend/images/readme/screenshot5.png) -->
