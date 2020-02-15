@@ -23,13 +23,18 @@ In your terminal navigate to the directory where you want to save the game files
 
 <p align="center">
 <img src='./escaperoom-frontend/images/readme/screenshot1.png'>
+<br>
 <em>Login</em>
 <img src='./escaperoom-frontend/images/readme/screenshot2.png'>
+<br>
 <em>Game narrative</em>
 <img src='./escaperoom-frontend/images/readme/screenshot3.png'>
+<br>
 <em>A recurring puzzle, use the clues to find your next puzzle location - drage the taxi there!</em>
 <img src='./escaperoom-frontend/images/readme/screenshot4.png'>
+<br>
 <em>One of the puzzles, put the map back together!</em>
 <img src='./escaperoom-frontend/images/readme/screenshot5.png'>
+<br>
 <em>End of game</em>
 </p>
