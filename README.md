@@ -9,7 +9,7 @@ The game was built using a Vanilla JS frontend and a Rails API backend. Two addi
 
 ### How to Run
 
-In your terminal navigate to the directory where you want to save the game files, enter and run each step:
+In your terminal navigate to the directory where you want to save the game files, then enter and run each step:
 
 1. `git clone git@github.com:kara-o/escaperoom.git`
 1. `cd escaperoom/escaperoom-backend/`
