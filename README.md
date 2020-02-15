@@ -5,7 +5,7 @@
 
 Using what we learned in our Module Three curriculum at Flatiron, we created a single page web app based on the popular Escape Room. Solve our Seattle-themed puzzles and beat the game!
 
-The game was built using vanilla JS frontend and Ruby on Rails API backend. Two additional libraries were used - [Moment.js](https://momentjs.com/) and [Animate.css](https://daneden.github.io/animate.css/).
+The game was built using a Vanilla JS frontend and a Rails API backend. Two additional libraries were used - [Moment.js](https://momentjs.com/) and [Animate.css](https://daneden.github.io/animate.css/).
 
 ### How to Run
 
