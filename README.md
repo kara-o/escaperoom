@@ -1,5 +1,4 @@
 # Seattle Escape Room
-## Flatiron School Module 3 Group Project
 
 ### Abstract
 
@@ -49,3 +48,7 @@ In your terminal navigate to the directory where you want to save the game files
 <br>
 <em>End of game</em>
 </p>
+
+### Additional Contributors
++ [Ian](https://github.com/ianhunterharold)
++ [Brian](https://github.com/brianly27)
