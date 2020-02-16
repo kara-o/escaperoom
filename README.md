@@ -2,7 +2,7 @@
 
 ### Abstract
 
-Using what we learned in our Module Three curriculum at Flatiron, we created a single page web app based on the popular Escape Room. Solve our Seattle-themed puzzles and beat the game!
+Using what we learned in our Module Three curriculum at Flatiron School, we created a single page web app based on the popular Escape Room. Solve our Seattle-themed puzzles and beat the game!
 
 The game was built using a Vanilla JS frontend and a Rails API backend. Two additional libraries were used - [Moment.js](https://momentjs.com/) and [Animate.css](https://daneden.github.io/animate.css/).
 
@@ -34,7 +34,7 @@ In your terminal navigate to the directory where you want to save the game files
 <p align="center">
 <img src='./escaperoom-frontend/images/readme/screenshot3.png'>
 <br>
-<em>A recurring puzzle, use the clues to find your next puzzle location - drage the taxi there!</em>
+<em>A recurring puzzle, use the clues to find your next puzzle location - drag the taxi there!</em>
 </p>
   
 <p align="center">
