@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "animate.css": "^3.7.2",
-    "moment": "^2.24.0"
+    "moment": "^2.29.2"
   }
 }
